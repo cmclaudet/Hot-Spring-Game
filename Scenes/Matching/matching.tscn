@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://da0jok8d622mq"]
+
+[ext_resource type="Script" path="res://Scripts/Matching/matching.gd" id="1_1wlxi"]
+[ext_resource type="PackedScene" uid="uid://dh1c6bd54stoo" path="res://Scenes/Matching/book_page.tscn" id="1_t234y"]
+[ext_resource type="Resource" uid="uid://dcd2ghokpc55g" path="res://Resources/Guests/guest_agnes.tres" id="2_4cswh"]
+[ext_resource type="Resource" uid="uid://dovoge8x8twkg" path="res://Resources/Guests/guest_saori.tres" id="2_yuwi7"]
+[ext_resource type="Resource" uid="uid://dagphopk3aa38" path="res://Resources/Guests/guest_dani.tres" id="3_gcwb8"]
+[ext_resource type="Resource" uid="uid://bt6tp45rwoatv" path="res://Resources/Guests/guest_yukiko.tres" id="4_q4orv"]
+[ext_resource type="Resource" uid="uid://mf8m1v1fmebc" path="res://Resources/Rooms/room_single_basic.tres" id="6_iplid"]
+[ext_resource type="Resource" uid="uid://vyk7knu378vy" path="res://Resources/Rooms/room_double_deluxe.tres" id="7_7rjm4"]
+[ext_resource type="Resource" uid="uid://pcwjypr160va" path="res://Resources/Rooms/room_queen_deluxe.tres" id="8_84h6a"]
+
+[node name="Matching" type="Control" node_paths=PackedStringArray("guest_container", "room_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1wlxi")
+guests = Array[Resource("res://Scripts/Resources/guest.gd")]([ExtResource("2_4cswh"), ExtResource("3_gcwb8"), ExtResource("2_yuwi7"), ExtResource("4_q4orv")])
+rooms = Array[Resource("res://Scripts/Resources/room.gd")]([ExtResource("6_iplid"), ExtResource("7_7rjm4"), ExtResource("8_84h6a"), ExtResource("6_iplid")])
+guest_container = NodePath("BookPageGuest/TextureRect/ScrollContainer/VBoxContainer")
+room_container = NodePath("BookPageRooms/TextureRect/ScrollContainer/VBoxContainer")
+
+[node name="BookPageGuest" parent="." instance=ExtResource("1_t234y")]
+offset_left = -110.0
+offset_right = -110.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BookPageGuest/TextureRect" index="0"]
+layout_mode = 0
+offset_left = 13.5
+offset_top = 12.0
+offset_right = 185.5
+offset_bottom = 266.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BookPageGuest/TextureRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="BookPageRooms" parent="." instance=ExtResource("1_t234y")]
+offset_left = 110.0
+offset_right = 110.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BookPageRooms/TextureRect" index="0"]
+layout_mode = 0
+offset_left = 13.5
+offset_top = 12.0
+offset_right = 185.5
+offset_bottom = 266.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BookPageRooms/TextureRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Label" parent="BookPageRooms/TextureRect/TextureRect" index="0"]
+text = "[center]Rooms"
+
+[editable path="BookPageGuest"]
+[editable path="BookPageRooms"]

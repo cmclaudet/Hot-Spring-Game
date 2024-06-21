@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Guest" load_steps=3 format=3 uid="uid://bt6tp45rwoatv"]
+
+[ext_resource type="Texture2D" uid="uid://chgfr176hsduh" path="res://Art/Ui/profilepic3.png" id="1_v2r56"]
+[ext_resource type="Script" path="res://Scripts/Resources/guest.gd" id="2_pao6q"]
+
+[resource]
+script = ExtResource("2_pao6q")
+name = "Yukiko"
+profile_pic = ExtResource("1_v2r56")
+stay_duration = 3

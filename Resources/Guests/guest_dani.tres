@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Guest" load_steps=3 format=3 uid="uid://dagphopk3aa38"]
+
+[ext_resource type="Texture2D" uid="uid://blqjblfgkq258" path="res://Art/Ui/profilepic2.png" id="1_xo852"]
+[ext_resource type="Script" path="res://Scripts/Resources/guest.gd" id="2_g5hqt"]
+
+[resource]
+script = ExtResource("2_g5hqt")
+name = "Dani"
+profile_pic = ExtResource("1_xo852")
+stay_duration = 5

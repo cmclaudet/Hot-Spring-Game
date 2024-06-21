@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Room" load_steps=3 format=3 uid="uid://vyk7knu378vy"]
+
+[ext_resource type="Resource" uid="uid://i5ahl41ttrd4" path="res://Resources/Rooms/Beds/bed_double.tres" id="1_4w27x"]
+[ext_resource type="Script" path="res://Scripts/Resources/room.gd" id="2_jv3mx"]
+
+[resource]
+script = ExtResource("2_jv3mx")
+stars = 2
+floor = 0
+type = 1
+beds = Array[Resource("res://Scripts/Resources/bed.gd")]([ExtResource("1_4w27x")])

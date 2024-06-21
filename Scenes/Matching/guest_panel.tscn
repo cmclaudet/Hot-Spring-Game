@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4u16q6lawnfp"]
+
+[ext_resource type="Texture2D" uid="uid://cmt2raf1ockmm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Lite.png" id="2_gp77v"]
+[ext_resource type="Script" path="res://Scripts/Matching/guest_panel.gd" id="3_y3mo0"]
+[ext_resource type="Texture2D" uid="uid://dnnuciht64tvb" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Hover.png" id="4_cxuc3"]
+[ext_resource type="Texture2D" uid="uid://bs8mbvbbaak33" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Standard.png" id="5_g6bba"]
+[ext_resource type="Texture2D" uid="uid://d1u2vyyewpjh7" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Slot_01_Selected.png" id="6_pymbn"]
+[ext_resource type="Texture2D" uid="uid://dpa13byucx5x1" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Lock_01a3.png" id="7_75dmr"]
+
+[sub_resource type="Theme" id="Theme_2nl1j"]
+default_font_size = 20
+
+[node name="GuestPanel" type="NinePatchRect" node_paths=PackedStringArray("guest_name", "picture")]
+custom_minimum_size = Vector2(2.08165e-12, 36)
+offset_right = 100.0
+offset_bottom = 36.0
+mouse_filter = 0
+texture = ExtResource("2_gp77v")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("3_y3mo0")
+guest_name = NodePath("ProfilePic/RichTextLabel")
+picture = NodePath("ProfilePic/Pic")
+onHoverTex = ExtResource("4_cxuc3")
+onPressedTex = ExtResource("5_g6bba")
+onSelectedTex = ExtResource("6_pymbn")
+
+[node name="ProfilePic" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -15.0
+offset_right = 31.0
+offset_bottom = 8.0
+grow_vertical = 2
+texture = ExtResource("7_75dmr")
+region_rect = Rect2(0, 6, 32, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Pic" type="TextureRect" parent="ProfilePic"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -22.0
+offset_right = 12.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProfilePic"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.5
+offset_right = 97.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+theme = SubResource("Theme_2nl1j")
+bbcode_enabled = true
+text = "[center]Name"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

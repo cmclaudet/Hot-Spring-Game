@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Guest" load_steps=3 format=3 uid="uid://dovoge8x8twkg"]
+
+[ext_resource type="Texture2D" uid="uid://cltxt41a0g1sp" path="res://Art/Ui/profilepic1.png" id="1_clofk"]
+[ext_resource type="Script" path="res://Scripts/Resources/guest.gd" id="2_aqo15"]
+
+[resource]
+script = ExtResource("2_aqo15")
+name = "Saori"
+profile_pic = ExtResource("1_clofk")
+stay_duration = 2
