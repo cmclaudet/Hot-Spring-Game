@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://da0jok8d622mq"]
+[gd_scene load_steps=14 format=3 uid="uid://da0jok8d622mq"]
 
 [ext_resource type="Script" path="res://Scripts/Matching/matching.gd" id="1_1wlxi"]
 [ext_resource type="PackedScene" uid="uid://dh1c6bd54stoo" path="res://Scenes/Matching/book_page.tscn" id="1_t234y"]
@@ -9,12 +9,17 @@
 [ext_resource type="Resource" uid="uid://mf8m1v1fmebc" path="res://Resources/Rooms/room_single_basic.tres" id="6_iplid"]
 [ext_resource type="Resource" uid="uid://vyk7knu378vy" path="res://Resources/Rooms/room_double_deluxe.tres" id="7_7rjm4"]
 [ext_resource type="Resource" uid="uid://pcwjypr160va" path="res://Resources/Rooms/room_queen_deluxe.tres" id="8_84h6a"]
+[ext_resource type="Texture2D" uid="uid://dxvxq6apw2xmu" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a4.png" id="11_2wyrs"]
+[ext_resource type="Texture2D" uid="uid://btg836gwpfg8a" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Press_02a2.png" id="13_3et5f"]
+[ext_resource type="Texture2D" uid="uid://d0544mtup7b3n" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a1.png" id="13_si5sg"]
+[ext_resource type="Texture2D" uid="uid://cs1qsbdgmwfo4" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Checkmark_Large.png" id="13_ybc42"]
 
 [node name="Matching" type="Control" node_paths=PackedStringArray("guest_container", "room_container")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = -0.5
+anchor_top = -0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1wlxi")
@@ -24,8 +29,16 @@ guest_container = NodePath("BookPageGuest/TextureRect/ScrollContainer/VBoxContai
 room_container = NodePath("BookPageRooms/TextureRect/ScrollContainer/VBoxContainer")
 
 [node name="BookPageGuest" parent="." instance=ExtResource("1_t234y")]
-offset_left = -110.0
-offset_right = -110.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_right = -120.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BookPageGuest/TextureRect" index="0"]
 layout_mode = 0
@@ -40,8 +53,16 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
 [node name="BookPageRooms" parent="." instance=ExtResource("1_t234y")]
-offset_left = 110.0
-offset_right = 110.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_right = 120.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BookPageRooms/TextureRect" index="0"]
 layout_mode = 0
@@ -57,6 +78,44 @@ theme_override_constants/separation = 5
 
 [node name="Label" parent="BookPageRooms/TextureRect/TextureRect" index="0"]
 text = "[center]Rooms"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+
+[node name="DoneButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -59.0
+offset_right = -27.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("11_2wyrs")
+texture_pressed = ExtResource("13_si5sg")
+texture_hover = ExtResource("13_3et5f")
+
+[node name="CheckIcon" type="TextureRect" parent="DoneButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.406
+anchor_right = 0.5
+anchor_bottom = 0.406
+offset_left = -13.0
+offset_top = -9.992
+offset_right = 13.0
+offset_bottom = 10.008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_ybc42")
+
+[connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]
 
 [editable path="BookPageGuest"]
 [editable path="BookPageRooms"]

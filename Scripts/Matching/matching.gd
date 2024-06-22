@@ -1,5 +1,7 @@
 extends Control
 
+signal matching_complete()
+
 @export var guests : Array[Guest]
 @export var rooms : Array[Room]
 @export var guest_container : BoxContainer
@@ -11,6 +13,8 @@ var room_panel_scene = preload("res://Scenes/Matching/room_panel.tscn")
 var matched_panels : Dictionary
 
 var selected_panel : MatchingPanel
+
+var lines : Array[Line2D]
 
 func _ready():
 	for guest in guests:
@@ -45,7 +49,8 @@ func on_guest_selected(guest_panel : GuestPanel):
 	else:
 		if selected_guest != null:
 			selected_guest.button._deselect()
-		guest_panel.create_line()
+		var line = guest_panel.create_line()
+		lines.append(line)
 		selected_panel = guest_panel
 
 func on_room_selected(room_panel : RoomPanel):
@@ -61,7 +66,8 @@ func on_room_selected(room_panel : RoomPanel):
 	else:
 		if selected_room != null:
 			selected_room.button._deselect()
-		room_panel.create_line()
+		var line = room_panel.create_line()
+		lines.append(line)
 		selected_panel = room_panel
 
 func on_guest_deselected(guest_panel : GuestPanel):
@@ -73,6 +79,7 @@ func on_guest_deselected(guest_panel : GuestPanel):
 		if selected_room != null:
 			guest_panel.button._select()
 	elif selected_guest == guest_panel:
+		lines.erase(selected_guest.attached_line)
 		selected_guest.delete_line()
 		selected_panel = null
 
@@ -85,6 +92,7 @@ func on_room_deselected(room_panel : RoomPanel):
 		if selected_guest != null:
 			room_panel.button._select()
 	elif selected_room == room_panel:
+		lines.erase(selected_room.attached_line)
 		selected_room.delete_line()
 		selected_panel = null
 
@@ -92,3 +100,15 @@ func unmatch(guest_panel : GuestPanel, room_panel : RoomPanel):
 	guest_panel.set_unmatched()
 	room_panel.set_unmatched()
 	matched_panels.erase(guest_panel)
+
+func _on_done_button_pressed():
+	var guest_to_room : Dictionary = {}
+	for guest_panel in matched_panels:
+		var room_panel = matched_panels[guest_panel]
+		guest_to_room[guest_panel.guest] = room_panel.room
+
+	StateService.add_guests(guest_to_room)
+	emit_signal("matching_complete")
+	for line in lines:
+		line.queue_free()
+	queue_free()

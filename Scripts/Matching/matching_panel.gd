@@ -17,7 +17,7 @@ func attach_line(line : Line2D):
 	attached_line = line
 	line.set_point_position(1, get_global_position() + _get_line_offset())
 
-func create_line():
+func create_line() -> Line2D:
 	var line = Line2D.new()
 	line.default_color = Color(0, 0, 0, 0.5)
 	line.width = 2
@@ -26,6 +26,7 @@ func create_line():
 	line.add_point(get_global_mouse_position())
 	attached_line = line
 	get_tree().get_root().add_child(line)
+	return line
 
 func delete_line():
 	if attached_line != null:

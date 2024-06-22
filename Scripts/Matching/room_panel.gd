@@ -2,11 +2,13 @@ class_name RoomPanel extends MatchingPanel
 
 @export var room_name : RichTextLabel
 @export var bed_container : HBoxContainer
+var room : Room
 
 var room_panel_bed_scene = preload("res://Scenes/Matching/room_panel_bed.tscn")
 
 func init(room : Room):
-	room_name.text = Room.RoomType.keys()[room.type]
+	self.room = room
+	room_name.text = room.get_room_name()
 	for child in bed_container.get_children():
 		child.queue_free()
 
