@@ -110,5 +110,6 @@ func _on_done_button_pressed():
 	StateService.add_guests(guest_to_room)
 	emit_signal("matching_complete")
 	for line in lines:
-		line.queue_free()
+		if line != null:
+			line.queue_free()
 	queue_free()
