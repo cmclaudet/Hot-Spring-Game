@@ -1,4 +1,4 @@
-class_name RoomPanel extends NinePatchRectButton
+class_name RoomPanel extends MatchingPanel
 
 @export var room_name : RichTextLabel
 @export var bed_container : HBoxContainer
@@ -15,9 +15,5 @@ func init(room : Room):
 		bed_container.add_child(bed_instance)
 		bed_instance.init(bed)
 
-func set_matched():
-	texture = onHoverTex
-
-func set_unmatched():
-	isSelected = false
-	texture = defaultTex
+func _get_line_offset():
+	return Vector2(0, size.y / 2)

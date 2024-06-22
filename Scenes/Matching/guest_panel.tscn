@@ -1,33 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4u16q6lawnfp"]
+[gd_scene load_steps=8 format=3 uid="uid://dfg01kfodccbt"]
 
-[ext_resource type="Texture2D" uid="uid://cmt2raf1ockmm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Lite.png" id="2_gp77v"]
+[ext_resource type="PackedScene" uid="uid://wmnc0t03vevb" path="res://Scenes/Matching/book_panel.tscn" id="1_q5oes"]
 [ext_resource type="Script" path="res://Scripts/Matching/guest_panel.gd" id="3_y3mo0"]
 [ext_resource type="Texture2D" uid="uid://dnnuciht64tvb" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Hover.png" id="4_cxuc3"]
 [ext_resource type="Texture2D" uid="uid://bs8mbvbbaak33" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Standard.png" id="5_g6bba"]
 [ext_resource type="Texture2D" uid="uid://d1u2vyyewpjh7" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Slot_01_Selected.png" id="6_pymbn"]
 [ext_resource type="Texture2D" uid="uid://dpa13byucx5x1" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Lock_01a3.png" id="7_75dmr"]
 
-[sub_resource type="Theme" id="Theme_2nl1j"]
+[sub_resource type="Theme" id="Theme_nahn8"]
 default_font_size = 20
 
-[node name="GuestPanel" type="NinePatchRect" node_paths=PackedStringArray("guest_name", "picture")]
-custom_minimum_size = Vector2(2.08165e-12, 36)
-offset_right = 100.0
-offset_bottom = 36.0
-mouse_filter = 0
-texture = ExtResource("2_gp77v")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+[node name="GuestPanel" node_paths=PackedStringArray("guest_name", "picture", "button") instance=ExtResource("1_q5oes")]
 script = ExtResource("3_y3mo0")
-guest_name = NodePath("ProfilePic/RichTextLabel")
-picture = NodePath("ProfilePic/Pic")
+guest_name = NodePath("NinePatchRectButton/ProfilePic/RichTextLabel")
+picture = NodePath("NinePatchRectButton/ProfilePic/Pic")
+button = NodePath("NinePatchRectButton")
+
+[node name="NinePatchRectButton" parent="." index="0"]
 onHoverTex = ExtResource("4_cxuc3")
 onPressedTex = ExtResource("5_g6bba")
 onSelectedTex = ExtResource("6_pymbn")
 
-[node name="ProfilePic" type="NinePatchRect" parent="."]
+[node name="ProfilePic" type="NinePatchRect" parent="NinePatchRectButton" index="0"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -44,7 +38,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Pic" type="TextureRect" parent="ProfilePic"]
+[node name="Pic" type="TextureRect" parent="NinePatchRectButton/ProfilePic" index="0"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -60,7 +54,7 @@ grow_vertical = 0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ProfilePic"]
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRectButton/ProfilePic" index="1"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -73,10 +67,6 @@ offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.25, 0.25)
-theme = SubResource("Theme_2nl1j")
+theme = SubResource("Theme_nahn8")
 bbcode_enabled = true
 text = "[center]Name"
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

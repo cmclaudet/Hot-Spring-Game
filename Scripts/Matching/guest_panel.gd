@@ -1,16 +1,11 @@
-class_name GuestPanel extends NinePatchRectButton
+class_name GuestPanel extends MatchingPanel
 
 @export var guest_name : RichTextLabel
 @export var picture : TextureRect
 
 func init(guest : Guest):
-	# print_debug("GuestPanel init" + guest.name)
 	guest_name.text = "[center]" + guest.name
 	picture.texture = guest.profile_pic
 
-func set_matched():
-	texture = onHoverTex
-
-func set_unmatched():
-	isSelected = false
-	texture = defaultTex
+func _get_line_offset():
+	return Vector2(size.x, size.y / 2)
