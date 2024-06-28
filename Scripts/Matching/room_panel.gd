@@ -1,6 +1,6 @@
 class_name RoomPanel extends MatchingPanel
 
-@export var room_name : RichTextLabel
+@export var room_name : Label
 @export var bed_container : HBoxContainer
 var room : Room
 

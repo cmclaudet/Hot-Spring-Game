@@ -12,7 +12,7 @@ default_font_size = 20
 
 [node name="GuestPanel" node_paths=PackedStringArray("guest_name", "picture", "button") instance=ExtResource("1_q5oes")]
 script = ExtResource("3_y3mo0")
-guest_name = NodePath("NinePatchRectButton/ProfilePic/RichTextLabel")
+guest_name = NodePath("NinePatchRectButton/ProfilePic/Label")
 picture = NodePath("NinePatchRectButton/ProfilePic/Pic")
 button = NodePath("NinePatchRectButton")
 
@@ -54,7 +54,7 @@ grow_vertical = 0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRectButton/ProfilePic" index="1"]
+[node name="Label" type="Label" parent="NinePatchRectButton/ProfilePic" index="1"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -68,5 +68,5 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.25, 0.25)
 theme = SubResource("Theme_nahn8")
-bbcode_enabled = true
-text = "[center]Name"
+text = "Name"
+horizontal_alignment = 1
