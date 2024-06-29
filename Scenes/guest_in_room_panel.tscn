@@ -8,13 +8,13 @@
 
 [node name="GuestInRoomPanel" node_paths=PackedStringArray("guest_name", "guest_picture", "days_remaining_label", "room_name", "room_picture") instance=ExtResource("1_pubms")]
 script = ExtResource("2_vkiuj")
-guest_name = NodePath("NinePatchRectButton/Guest/NameLabel")
-guest_picture = NodePath("NinePatchRectButton/Guest/GuestPic")
-days_remaining_label = NodePath("NinePatchRectButton/DaysRemainingLabel")
-room_name = NodePath("NinePatchRectButton/Room/NameLabel")
-room_picture = NodePath("NinePatchRectButton/Room/RoomPic")
+guest_name = NodePath("NinePatchRectToggle/Guest/NameLabel")
+guest_picture = NodePath("NinePatchRectToggle/Guest/GuestPic")
+days_remaining_label = NodePath("NinePatchRectToggle/DaysRemainingLabel")
+room_name = NodePath("NinePatchRectToggle/Room/NameLabel")
+room_picture = NodePath("NinePatchRectToggle/Room/RoomPic")
 
-[node name="Guest" type="NinePatchRect" parent="NinePatchRectButton" index="0"]
+[node name="Guest" type="NinePatchRect" parent="NinePatchRectToggle" index="0"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -31,7 +31,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="GuestPic" type="TextureRect" parent="NinePatchRectButton/Guest" index="0"]
+[node name="GuestPic" type="TextureRect" parent="NinePatchRectToggle/Guest" index="0"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -47,7 +47,7 @@ grow_vertical = 0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="NameLabel" type="Label" parent="NinePatchRectButton/Guest" index="1"]
+[node name="NameLabel" type="Label" parent="NinePatchRectToggle/Guest" index="1"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -63,7 +63,7 @@ scale = Vector2(0.25, 0.25)
 theme = ExtResource("4_m4ms1")
 text = "Name"
 
-[node name="DaysRemainingLabel" type="Label" parent="NinePatchRectButton" index="1"]
+[node name="DaysRemainingLabel" type="Label" parent="NinePatchRectToggle" index="1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,7 +83,7 @@ text = "Days left:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Room" parent="NinePatchRectButton" index="2" instance=ExtResource("3_4y7s7")]
+[node name="Room" parent="NinePatchRectToggle" index="2" instance=ExtResource("3_4y7s7")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -98,7 +98,7 @@ grow_horizontal = 0
 grow_vertical = 2
 script = null
 
-[node name="RoomPic" type="TextureRect" parent="NinePatchRectButton/Room" index="0"]
+[node name="RoomPic" type="TextureRect" parent="NinePatchRectToggle/Room" index="0"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -114,7 +114,7 @@ grow_vertical = 0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="NameLabel" type="Label" parent="NinePatchRectButton/Room" index="2"]
+[node name="NameLabel" type="Label" parent="NinePatchRectToggle/Room" index="2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0

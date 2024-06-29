@@ -1,6 +1,6 @@
 class_name MatchingPanel extends Control
 
-@export var button : NinePatchRectButton
+@export var button : NinePatchRectToggle
 var attached_line : Line2D
 
 func set_matched():
