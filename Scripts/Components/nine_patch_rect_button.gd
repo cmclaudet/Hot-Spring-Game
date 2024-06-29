@@ -4,7 +4,6 @@ signal button_selected()
 
 @export var onHoverTex : Texture2D
 @export var onPressedTex : Texture2D
-@export var onSelectedTex : Texture2D
 
 var defaultTex : Texture2D
 

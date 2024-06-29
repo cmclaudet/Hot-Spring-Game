@@ -1,7 +1,9 @@
-extends TextureButton
+extends Control
+
+@export var button : NinePatchRectButton
 
 func _ready():
-	pressed.connect(self.end_day)
+	button.button_selected.connect(self.end_day)
 
 func end_day():
 	# This is where you would put the code to end the day

@@ -2,15 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://c0xxnbxl8lnkn" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Medium_Lock_02a3.png" id="1_kqr1p"]
 [ext_resource type="Texture2D" uid="uid://d0eyh0riii7xm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Medium_Release_01a2.png" id="2_dawhj"]
+[ext_resource type="LabelSettings" uid="uid://cjwsxdq0cq7qk" path="res://Themes/ui_text_small_header.tres" id="3_ltvpi"]
 
 [sub_resource type="Theme" id="Theme_vjedx"]
 
 [sub_resource type="Theme" id="Theme_xdmsy"]
 default_font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_c3mdr"]
-font_size = 18
-font_color = Color(0, 0, 0, 1)
 
 [node name="BookPage" type="Control"]
 layout_mode = 3
@@ -65,6 +62,6 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 theme = SubResource("Theme_xdmsy")
 text = "Guests"
-label_settings = SubResource("LabelSettings_c3mdr")
+label_settings = ExtResource("3_ltvpi")
 horizontal_alignment = 1
 vertical_alignment = 1

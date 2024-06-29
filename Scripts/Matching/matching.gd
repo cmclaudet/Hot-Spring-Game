@@ -31,7 +31,7 @@ func _ready():
 		room_panel.button.button_deselected.connect(on_room_deselected.bind(room_panel))
 		room_container.add_child(room_panel)
 
-func _process(delta):
+func _process(_delta):
 	if selected_panel != null:
 		var mouse_pos = get_global_mouse_position()
 		selected_panel.attached_line.set_point_position(1, mouse_pos)

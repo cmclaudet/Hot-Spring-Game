@@ -26,12 +26,9 @@ func _on_gui_input(event:InputEvent):
 	if mouse_event != null: 
 		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
 			if mouse_event.is_pressed():
-				print_debug("Pressed")
 				texture = onPressedTex
 			elif mouse_event.is_released():
-				print_debug("Released")
 				if isSelected:
-					print_debug("deselect")
 					_deselect()
 					texture = onHoverTex
 				else:

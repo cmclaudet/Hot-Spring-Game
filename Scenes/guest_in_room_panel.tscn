@@ -1,20 +1,35 @@
 [gd_scene load_steps=6 format=3 uid="uid://bn7huavd2fbx4"]
 
-[ext_resource type="PackedScene" uid="uid://wmnc0t03vevb" path="res://Scenes/Matching/book_panel.tscn" id="1_pubms"]
+[ext_resource type="Texture2D" uid="uid://cmt2raf1ockmm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Lite.png" id="2_5dsi2"]
 [ext_resource type="Texture2D" uid="uid://dpa13byucx5x1" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Lock_01a3.png" id="2_oyn1a"]
 [ext_resource type="Script" path="res://Scripts/guest_in_room_panel.gd" id="2_vkiuj"]
 [ext_resource type="PackedScene" uid="uid://be460ouuofqw7" path="res://Scenes/Matching/room_panel_bed.tscn" id="3_4y7s7"]
 [ext_resource type="Theme" uid="uid://doih5qg77psq6" path="res://Themes/ui_text_basic.tres" id="4_m4ms1"]
 
-[node name="GuestInRoomPanel" node_paths=PackedStringArray("guest_name", "guest_picture", "days_remaining_label", "room_name", "room_picture") instance=ExtResource("1_pubms")]
+[node name="GuestInRoomPanel" type="VBoxContainer" node_paths=PackedStringArray("guest_name", "guest_picture", "days_remaining_label", "room_name", "room_picture")]
+custom_minimum_size = Vector2(2.08165e-12, 36)
+offset_right = 100.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("2_vkiuj")
-guest_name = NodePath("NinePatchRectToggle/Guest/NameLabel")
-guest_picture = NodePath("NinePatchRectToggle/Guest/GuestPic")
-days_remaining_label = NodePath("NinePatchRectToggle/DaysRemainingLabel")
-room_name = NodePath("NinePatchRectToggle/Room/NameLabel")
-room_picture = NodePath("NinePatchRectToggle/Room/RoomPic")
+guest_name = NodePath("NinePatchRect/Guest/NameLabel")
+guest_picture = NodePath("NinePatchRect/Guest/GuestPic")
+days_remaining_label = NodePath("NinePatchRect/DaysRemainingLabel")
+room_name = NodePath("NinePatchRect/Room/NameLabel")
+room_picture = NodePath("NinePatchRect/Room/RoomPic")
 
-[node name="Guest" type="NinePatchRect" parent="NinePatchRectToggle" index="0"]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 36)
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("2_5dsi2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Guest" type="NinePatchRect" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -31,7 +46,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="GuestPic" type="TextureRect" parent="NinePatchRectToggle/Guest" index="0"]
+[node name="GuestPic" type="TextureRect" parent="NinePatchRect/Guest"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -47,7 +62,7 @@ grow_vertical = 0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="NameLabel" type="Label" parent="NinePatchRectToggle/Guest" index="1"]
+[node name="NameLabel" type="Label" parent="NinePatchRect/Guest"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -63,7 +78,7 @@ scale = Vector2(0.25, 0.25)
 theme = ExtResource("4_m4ms1")
 text = "Name"
 
-[node name="DaysRemainingLabel" type="Label" parent="NinePatchRectToggle" index="1"]
+[node name="DaysRemainingLabel" type="Label" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,7 +98,7 @@ text = "Days left:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Room" parent="NinePatchRectToggle" index="2" instance=ExtResource("3_4y7s7")]
+[node name="Room" parent="NinePatchRect" instance=ExtResource("3_4y7s7")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -98,7 +113,7 @@ grow_horizontal = 0
 grow_vertical = 2
 script = null
 
-[node name="RoomPic" type="TextureRect" parent="NinePatchRectToggle/Room" index="0"]
+[node name="RoomPic" type="TextureRect" parent="NinePatchRect/Room"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -114,7 +129,7 @@ grow_vertical = 0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="NameLabel" type="Label" parent="NinePatchRectToggle/Room" index="2"]
+[node name="NameLabel" type="Label" parent="NinePatchRect/Room"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -130,3 +145,7 @@ scale = Vector2(0.25, 0.25)
 theme = ExtResource("4_m4ms1")
 text = "Name | Type"
 horizontal_alignment = 2
+
+[connection signal="gui_input" from="NinePatchRect" to="NinePatchRect" method="_on_gui_input"]
+[connection signal="mouse_entered" from="NinePatchRect" to="NinePatchRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect" to="NinePatchRect" method="_on_mouse_exited"]

@@ -1,12 +1,13 @@
-extends TextureButton
+extends Control
 
+@export var button : NinePatchRectButton
 @export var ui_container : Control
 
 var ui_guests_scene = preload("res://Scenes/ui_guests.tscn")
 var ui_guest_instance : UiGuest
 
 func _ready():
-	pressed.connect(self.open_guest_ui)
+	button.button_selected.connect(self.open_guest_ui)
 
 func open_guest_ui():
 	if ui_guest_instance == null:
