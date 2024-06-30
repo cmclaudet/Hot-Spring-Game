@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1jbwunydc580"]
+[gd_scene load_steps=11 format=3 uid="uid://d1jbwunydc580"]
 
 [ext_resource type="PackedScene" uid="uid://wmnc0t03vevb" path="res://Scenes/Matching/book_panel.tscn" id="1_qmgfb"]
 [ext_resource type="Texture2D" uid="uid://btjqykmoisjsk" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_02_Lite.png" id="2_hs61h"]
@@ -7,14 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://bmkk3ji5uunap" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Slot_02_Press_Down.png" id="5_jh3im"]
 [ext_resource type="Texture2D" uid="uid://cqhn52ltlo2ug" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Slot_02_Selected.png" id="6_3gs11"]
 [ext_resource type="PackedScene" uid="uid://be460ouuofqw7" path="res://Scenes/Matching/room_panel_bed.tscn" id="7_3wwyg"]
+[ext_resource type="Texture2D" uid="uid://c3e5plnaiy6oh" path="res://Art/EncoderXSolutions/star.png" id="7_rcpip"]
+[ext_resource type="Script" path="res://Scripts/Matching/ui_stars.gd" id="7_yo2vo"]
 
 [sub_resource type="Theme" id="Theme_qhsa0"]
 default_font_size = 20
 
-[node name="RoomPanel" node_paths=PackedStringArray("room_name", "bed_container", "button") instance=ExtResource("1_qmgfb")]
+[node name="RoomPanel" node_paths=PackedStringArray("room_name", "bed_container", "star_container", "button") instance=ExtResource("1_qmgfb")]
 script = ExtResource("3_64kxa")
 room_name = NodePath("NinePatchRectToggle/Label")
 bed_container = NodePath("NinePatchRectToggle/ScrollContainer/HBoxContainer")
+star_container = NodePath("NinePatchRectToggle/StarContainer")
 button = NodePath("NinePatchRectToggle")
 
 [node name="NinePatchRectToggle" parent="." index="0"]
@@ -23,7 +26,27 @@ onHoverTex = ExtResource("4_p15qi")
 onPressedTex = ExtResource("5_jh3im")
 onSelectedTex = ExtResource("6_3gs11")
 
-[node name="Label" type="Label" parent="NinePatchRectToggle" index="0"]
+[node name="StarContainer" type="HBoxContainer" parent="NinePatchRectToggle" index="0" node_paths=PackedStringArray("star_template")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 12.0
+grow_horizontal = 0
+alignment = 2
+script = ExtResource("7_yo2vo")
+star_template = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRectToggle/StarContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("7_rcpip")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="NinePatchRectToggle" index="1"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -37,7 +60,7 @@ scale = Vector2(0.3, 0.3)
 theme = SubResource("Theme_qhsa0")
 text = "Name | Type"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRectToggle" index="1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRectToggle" index="2"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

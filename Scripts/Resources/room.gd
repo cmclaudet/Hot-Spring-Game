@@ -9,5 +9,8 @@ enum RoomType { Basic, Deluxe, Luxury }
 @export var type : RoomType
 @export var beds : Array[Bed]
 
-func get_room_name():
+func get_room_name() -> String:
+	return RoomType.keys()[type] + " Room " + " | " + Floor.keys()[floor] + " Floor"
+
+func get_room_type_text() -> String:
 	return RoomType.keys()[type]

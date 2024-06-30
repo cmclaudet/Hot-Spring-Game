@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Guest" load_steps=3 format=3 uid="uid://dcd2ghokpc55g"]
+[gd_resource type="Resource" script_class="Guest" load_steps=4 format=3 uid="uid://dcd2ghokpc55g"]
 
 [ext_resource type="Texture2D" uid="uid://br33ow51eaep7" path="res://Art/Ui/profilepic4.png" id="1_icv08"]
+[ext_resource type="Resource" uid="uid://mf8m1v1fmebc" path="res://Resources/Rooms/room_single_basic.tres" id="1_ljfww"]
 [ext_resource type="Script" path="res://Scripts/Resources/guest.gd" id="2_4fse8"]
 
 [resource]
@@ -8,3 +9,4 @@ script = ExtResource("2_4fse8")
 name = "Agnes"
 profile_pic = ExtResource("1_icv08")
 stay_duration = 2
+desired_room = ExtResource("1_ljfww")

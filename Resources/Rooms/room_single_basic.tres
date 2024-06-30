@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_wyri2")
-stars = 0
+stars = 1
 floor = 0
 type = 0
 beds = Array[Resource("res://Scripts/Resources/bed.gd")]([ExtResource("1_ji6lf")])
