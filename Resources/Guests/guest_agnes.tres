@@ -7,4 +7,4 @@
 script = ExtResource("2_4fse8")
 name = "Agnes"
 profile_pic = ExtResource("1_icv08")
-stay_duration = 1
+stay_duration = 2

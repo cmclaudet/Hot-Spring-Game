@@ -36,6 +36,8 @@ func on_day_intro_closed(day : Day):
 	var guests = day.guests
 	if guests.size() > 0:
 		start_matching(guests, StateService.state.available_rooms)
+	else:
+		emit_signal("signal_matching_complete")
 
 func get_day_resource(day : int) -> Day:
 	var day_resource = LoaderUtil.load_day(day)

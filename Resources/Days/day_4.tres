@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Day" load_steps=3 format=3 uid="uid://bltygcod5c8u8"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/day.gd" id="1_fsa6k"]
+[ext_resource type="Resource" uid="uid://bt6tp45rwoatv" path="res://Resources/Guests/guest_yukiko.tres" id="1_ixe6j"]
+
+[resource]
+script = ExtResource("1_fsa6k")
+guests = Array[Resource("res://Scripts/Resources/guest.gd")]([ExtResource("1_ixe6j")])
