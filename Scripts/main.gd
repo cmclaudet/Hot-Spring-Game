@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var ui_container : Control
+@export var starting_rooms : Array[Room]
 
 func _ready():
 	ui_container.hide()
@@ -13,7 +14,7 @@ func _ready():
 
 func init_state():
 	StateService.state.day = 1
-	StateService.state.available_rooms = LoaderUtil.load_rooms()
+	StateService.state.available_rooms = starting_rooms
 
 func _on_end_day_ui_button_signal_end_day():
 	GameManager.end_day()
