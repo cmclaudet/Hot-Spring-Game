@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://be460ouuofqw7" path="res://Scenes/Matching/room_panel_bed.tscn" id="3_4y7s7"]
 [ext_resource type="Theme" uid="uid://doih5qg77psq6" path="res://Themes/ui_text_basic.tres" id="4_m4ms1"]
 
-[node name="GuestInRoomPanel" type="VBoxContainer" node_paths=PackedStringArray("guest_name", "guest_picture", "days_remaining_label", "room_name", "room_picture")]
+[node name="GuestInRoomPanel" type="VBoxContainer" node_paths=PackedStringArray("guest_name", "guest_picture", "days_remaining_label", "room_name", "bed_container")]
 custom_minimum_size = Vector2(2.08165e-12, 36)
-offset_right = 100.0
+offset_right = 152.0
 offset_bottom = 36.0
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -17,7 +17,7 @@ guest_name = NodePath("NinePatchRect/Guest/NameLabel")
 guest_picture = NodePath("NinePatchRect/Guest/GuestPic")
 days_remaining_label = NodePath("NinePatchRect/DaysRemainingLabel")
 room_name = NodePath("NinePatchRect/Room/NameLabel")
-room_picture = NodePath("NinePatchRect/Room/RoomPic")
+bed_container = NodePath("NinePatchRect/Room/HBoxContainer")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(2.08165e-12, 36)
@@ -80,14 +80,12 @@ text = "Name"
 
 [node name="DaysRemainingLabel" type="Label" parent="NinePatchRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -15.0
+offset_left = 33.0
 offset_top = -14.0
-offset_right = 109.0
+offset_right = 157.0
 offset_bottom = 94.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -98,53 +96,52 @@ text = "Days left:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Room" parent="NinePatchRect" instance=ExtResource("3_4y7s7")]
+[node name="Room" type="Control" parent="NinePatchRect"]
+custom_minimum_size = Vector2(25, 23)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -32.0
+offset_left = -81.0
 offset_top = -15.0
-offset_right = -7.0
-offset_bottom = 8.0
+offset_right = -3.0
+offset_bottom = 15.0
 grow_horizontal = 0
 grow_vertical = 2
-script = null
-
-[node name="RoomPic" type="TextureRect" parent="NinePatchRect/Room"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -12.5
-offset_top = -22.0
-offset_right = 11.5
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 0
-expand_mode = 2
-stretch_mode = 4
 
 [node name="NameLabel" type="Label" parent="NinePatchRect/Room"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.957
-anchor_right = 1.0
-anchor_bottom = 0.957
-offset_left = -65.0
-offset_top = 0.989
-offset_right = 195.0
-offset_bottom = 30.989
+anchor_left = 1.038
+anchor_top = 1.0
+anchor_right = 1.038
+anchor_bottom = 1.0
+offset_left = -70.964
+offset_top = -7.0
+offset_right = 189.036
+offset_bottom = 23.0
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
 theme = ExtResource("4_m4ms1")
 text = "Name | Type"
 horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/Room"]
+layout_mode = 2
+anchor_left = 1.038
+anchor_top = 0.5
+anchor_right = 1.038
+anchor_bottom = 0.5
+offset_left = -93.964
+offset_top = -14.0
+offset_right = -5.96401
+offset_bottom = 9.0
+alignment = 2
+
+[node name="Bed" parent="NinePatchRect/Room/HBoxContainer" instance=ExtResource("3_4y7s7")]
+layout_mode = 2
 
 [connection signal="gui_input" from="NinePatchRect" to="NinePatchRect" method="_on_gui_input"]
 [connection signal="mouse_entered" from="NinePatchRect" to="NinePatchRect" method="_on_mouse_entered"]
