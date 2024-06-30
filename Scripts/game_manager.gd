@@ -1,6 +1,7 @@
 extends Node
 
 signal signal_start_day
+signal signal_end_day
 signal signal_end_game
 signal signal_matching_complete
 
@@ -9,6 +10,9 @@ var day_intro_scene_instance
 
 var matching_scene = preload("res://Scenes/Matching/matching.tscn")
 var matching_scene_instance
+
+var day_end_results_scene = preload("res://Scenes/day_end_results.tscn")
+var day_end_results_scene_instance
 
 func start_day(day : int):
 	var day_resource = get_day_resource(day)
@@ -29,8 +33,20 @@ func start_day(day : int):
 
 func end_day():
 	StateService.end_day()
-	StateService.remove_guests()
-	start_day(StateService.state.day)
+	var guests_to_remove = StateService.remove_guests()
+	show_day_results(guests_to_remove)
+
+func show_day_results(guests_to_remove : Array[GuestState]):
+	if day_end_results_scene_instance != null:
+		day_end_results_scene_instance.init(guests_to_remove)
+		day_end_results_scene_instance.show()
+		day_end_results_scene_instance.signal_end_day.connect(start_day.bind(StateService.state.day))
+	else:
+		day_end_results_scene_instance = day_end_results_scene.instantiate()
+		day_end_results_scene_instance.init(guests_to_remove)
+		day_end_results_scene_instance.signal_end_day.connect(start_day.bind(StateService.state.day))
+		get_tree().get_root().add_child(day_end_results_scene_instance)
+	emit_signal("signal_end_day")
 
 func on_day_intro_closed(day : Day):
 	var guests = day.guests

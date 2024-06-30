@@ -8,5 +8,5 @@
 script = ExtResource("2_pao6q")
 name = "Yukiko"
 profile_pic = ExtResource("1_v2r56")
-stay_duration = 3
+stay_duration = 2
 desired_room = ExtResource("1_motu1")

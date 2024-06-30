@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cd8744uiqqrf7"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/generic_rating_texts.gd" id="1_iniof"]
+
+[resource]
+script = ExtResource("1_iniof")
+texts_by_star = {
+1: ["Awful place. I would not recommend", "I was given a completely different room to what I asked"],
+2: ["There are other much better places close by"],
+3: ["The staff are nice, but I was given the wrong room", "I enjoyed it, but the room was not what I asked for"],
+4: ["Pleasant stay. The staff are very nice", "This is a cute little onsen, I had a nice time"],
+5: ["Amazing stay! Would highly recommend!", "This is my favorite onsen in all of Japan", "Highly recommend. Make sure to try the breakfast"]
+}

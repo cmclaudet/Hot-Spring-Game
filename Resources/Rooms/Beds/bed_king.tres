@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Bed" load_steps=3 format=3 uid="uid://bvkqh37lqc88j"]
+
+[ext_resource type="Texture2D" uid="uid://cd4u5xdxw4bbt" path="res://Art/Ui/bedicon1.png" id="1_fkelk"]
+[ext_resource type="Script" path="res://Scripts/Resources/bed.gd" id="2_yugil"]
+
+[resource]
+script = ExtResource("2_yugil")
+bed_type = 2
+sleeps_count = 2
+icon = ExtResource("1_fkelk")

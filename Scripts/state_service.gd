@@ -25,7 +25,7 @@ func end_day():
 	for guest in state.guests:
 		guest.days_stayed += 1
 
-func remove_guests():
+func remove_guests() -> Array[GuestState]:
 	var guests_to_remove : Array[GuestState] = []
 	for guest in state.guests:
 		if guest.days_stayed >= guest.guest.stay_duration:
@@ -34,3 +34,5 @@ func remove_guests():
 	for guest in guests_to_remove:
 		state.available_rooms.append(guest.room)
 		state.guests.erase(guest)
+
+	return guests_to_remove

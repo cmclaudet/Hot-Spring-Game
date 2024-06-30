@@ -7,6 +7,7 @@ func _ready():
 	ui_container.hide()
 	init_state()
 	GameManager.signal_start_day.connect(ui_container.hide)
+	GameManager.signal_end_day.connect(ui_container.hide)
 	GameManager.signal_matching_complete.connect(ui_container.show)
 	GameManager.signal_end_game.connect(ui_container.hide)
 
