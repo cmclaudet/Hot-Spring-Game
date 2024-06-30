@@ -1,14 +1,19 @@
 extends Node2D
 
-var matching_scene = preload("res://Scenes/Matching/matching.tscn")
-var matching_scene_instance
+@export var ui_container : Control
 
 func _ready():
-	open_book()
+	ui_container.hide()
+	init_state()
+	GameManager.signal_start_day.connect(ui_container.hide)
+	GameManager.signal_matching_complete.connect(ui_container.show)
+	GameManager.signal_end_game.connect(ui_container.hide)
 
-func open_book():
-	var scene_instance = matching_scene.instantiate()
-	matching_scene_instance = scene_instance
-	matching_scene_instance.matching_complete.connect(show)
-	get_tree().get_root().add_child.call_deferred(scene_instance)
-	hide()
+	GameManager.start_day.call_deferred(StateService.state.day)
+
+func init_state():
+	StateService.state.day = 1
+	StateService.state.available_rooms = LoaderUtil.load_rooms()
+
+func _on_end_day_ui_button_signal_end_day():
+	GameManager.end_day()

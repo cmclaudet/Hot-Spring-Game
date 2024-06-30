@@ -2,8 +2,6 @@ extends Control
 
 signal matching_complete()
 
-@export var guests : Array[Guest]
-@export var rooms : Array[Room]
 @export var guest_container : BoxContainer
 @export var room_container : BoxContainer
 
@@ -16,7 +14,7 @@ var selected_panel : MatchingPanel
 
 var lines : Array[Line2D]
 
-func _ready():
+func init(guests : Array[Guest], rooms : Array[Room]):
 	for guest in guests:
 		var guest_panel = guest_panel_scene.instantiate()
 		guest_panel.init(guest)

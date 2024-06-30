@@ -5,8 +5,9 @@
 [ext_resource type="Script" path="res://Scripts/button_open_guest_ui.gd" id="5_l5yd0"]
 [ext_resource type="Script" path="res://Scripts/button_end_day.gd" id="6_mlxts"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("ui_container")]
 script = ExtResource("1_db02v")
+ui_container = NodePath("Control")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -29,9 +30,9 @@ anchors_preset = 3
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = -90.0
-offset_top = -62.0
+offset_top = -60.0
 offset_right = -30.0
-offset_bottom = -31.0
+offset_bottom = -29.0
 grow_vertical = 0
 script = ExtResource("6_mlxts")
 button = NodePath("Button")
@@ -48,6 +49,8 @@ grow_vertical = 0
 text = "End Day"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="signal_end_day" from="Control/EndDayUiButton" to="." method="_on_end_day_ui_button_signal_end_day"]
 
 [editable path="Control/GuestOpenUiButton"]
 [editable path="Control/EndDayUiButton"]

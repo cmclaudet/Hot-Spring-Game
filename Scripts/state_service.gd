@@ -20,6 +20,17 @@ func add_guests(new_guests_to_room : Dictionary):
 
 	state.guests.append_array(new_guests)
 
+func end_day():
+	state.day += 1
+	for guest in state.guests:
+		guest.days_stayed += 1
+
 func remove_guests():
-	# todo compare guest stay duration with guest days stayed, remove those that should leave
-	pass
+	var guests_to_remove : Array[GuestState] = []
+	for guest in state.guests:
+		if guest.days_stayed >= guest.guest.stay_duration:
+			guests_to_remove.append(guest)
+
+	for guest in guests_to_remove:
+		state.available_rooms.append(guest.room)
+		state.guests.erase(guest)
