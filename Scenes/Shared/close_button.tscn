@@ -1,22 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2cj2266tuixy"]
 
-[ext_resource type="Texture2D" uid="uid://dxvxq6apw2xmu" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a4.png" id="1_3mbl8"]
-[ext_resource type="Texture2D" uid="uid://d0544mtup7b3n" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a1.png" id="2_rhg1g"]
-[ext_resource type="Texture2D" uid="uid://btg836gwpfg8a" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Press_02a2.png" id="3_2rdem"]
+[ext_resource type="Texture2D" uid="uid://b2o4gw8mk1o1r" path="res://Art/Ui/Button_Unpressed.png" id="1_vdh5t"]
+[ext_resource type="Texture2D" uid="uid://bgbefsjcfj0sr" path="res://Art/Ui/Button_Pressed.png" id="2_fc056"]
+[ext_resource type="Texture2D" uid="uid://b3lup1owr5a7" path="res://Art/Ui/Button_Hover.png" id="3_oataf"]
 [ext_resource type="Texture2D" uid="uid://b62t5q4cbxji0" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Cross_Large.png" id="4_xnxlv"]
 
 [node name="CloseButton" type="TextureButton"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -51.0
+offset_left = -95.0
 offset_top = 17.0
 offset_right = -19.0
-offset_bottom = 49.0
+offset_bottom = 37.0
 grow_horizontal = 0
-texture_normal = ExtResource("1_3mbl8")
-texture_pressed = ExtResource("2_rhg1g")
-texture_hover = ExtResource("3_2rdem")
+texture_normal = ExtResource("1_vdh5t")
+texture_pressed = ExtResource("2_fc056")
+texture_hover = ExtResource("3_oataf")
 
 [node name="CrossIcon" type="TextureRect" parent="."]
 layout_mode = 1
@@ -25,10 +25,10 @@ anchor_left = 0.5
 anchor_top = 0.406
 anchor_right = 0.5
 anchor_bottom = 0.406
-offset_left = -13.0
-offset_top = -9.992
-offset_right = 13.0
-offset_bottom = 10.008
+offset_left = -16.0
+offset_top = -15.12
+offset_right = 16.0
+offset_bottom = 16.88
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_xnxlv")

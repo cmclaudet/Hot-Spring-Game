@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dh1c6bd54stoo"]
 
-[ext_resource type="Texture2D" uid="uid://c0xxnbxl8lnkn" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Medium_Lock_02a3.png" id="1_kqr1p"]
+[ext_resource type="Texture2D" uid="uid://4hw3pfxotx6f" path="res://Art/Ui/PaperTextureGuests.png" id="1_s53ua"]
 [ext_resource type="Texture2D" uid="uid://d0eyh0riii7xm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Medium_Release_01a2.png" id="2_dawhj"]
 [ext_resource type="LabelSettings" uid="uid://cjwsxdq0cq7qk" path="res://Themes/ui_text_small_header.tres" id="3_ltvpi"]
 
@@ -27,8 +27,8 @@ offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_vjedx")
-texture = ExtResource("1_kqr1p")
-region_rect = Rect2(0, 6, 64, 26)
+texture = ExtResource("1_s53ua")
+region_rect = Rect2(3.04612, 1.75492, 80.9184, 25.522)
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5

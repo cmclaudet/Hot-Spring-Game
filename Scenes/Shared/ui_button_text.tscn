@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://clottyp36sw47"]
 
-[ext_resource type="Texture2D" uid="uid://dxvxq6apw2xmu" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a4.png" id="2_1f8w0"]
+[ext_resource type="Texture2D" uid="uid://b2o4gw8mk1o1r" path="res://Art/Ui/Button_Unpressed.png" id="1_ql584"]
 [ext_resource type="Script" path="res://Scripts/Components/nine_patch_rect_button.gd" id="3_4tk0t"]
-[ext_resource type="Texture2D" uid="uid://btg836gwpfg8a" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Press_02a2.png" id="4_ig6gm"]
-[ext_resource type="Texture2D" uid="uid://d0544mtup7b3n" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a1.png" id="5_lahhb"]
+[ext_resource type="Texture2D" uid="uid://b3lup1owr5a7" path="res://Art/Ui/Button_Hover.png" id="3_7udki"]
+[ext_resource type="Texture2D" uid="uid://bgbefsjcfj0sr" path="res://Art/Ui/Button_Pressed.png" id="4_pork8"]
 [ext_resource type="LabelSettings" uid="uid://lt6428wgxtiq" path="res://Themes/ui_label_setting_menu_button.tres" id="6_wb31y"]
 
 [node name="UiButton" type="Control"]
@@ -27,14 +27,14 @@ offset_left = -60.0
 offset_bottom = 31.0
 grow_horizontal = 0
 mouse_filter = 0
-texture = ExtResource("2_1f8w0")
+texture = ExtResource("1_ql584")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 10
 script = ExtResource("3_4tk0t")
-onHoverTex = ExtResource("4_ig6gm")
-onPressedTex = ExtResource("5_lahhb")
+onHoverTex = ExtResource("3_7udki")
+onPressedTex = ExtResource("4_pork8")
 
 [node name="Label" type="Label" parent="Button"]
 layout_mode = 1
