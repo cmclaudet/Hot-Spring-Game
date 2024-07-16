@@ -696,11 +696,12 @@ terrain_set_1/terrain_0/color = Color(0.277548, 0.35073, 0.689344, 1)
 sources/0 = SubResource("TileSetAtlasSource_ahvii")
 sources/1 = SubResource("TileSetAtlasSource_banms")
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("ui_container", "canvas_layer")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("ui_container", "canvas_layer", "player")]
 script = ExtResource("1_db02v")
 ui_container = NodePath("CanvasLayer/Control")
 starting_rooms = Array[Resource("res://Scripts/Resources/room.gd")]([ExtResource("2_sapie"), ExtResource("2_sapie"), ExtResource("3_aoxhj"), ExtResource("4_yjq01"), ExtResource("5_5178j")])
 canvas_layer = NodePath("CanvasLayer")
+player = NodePath("CharacterBody2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, 0)
@@ -732,12 +733,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="GuestOpenUiButton" parent="CanvasLayer/Control" node_paths=PackedStringArray("button", "ui_container", "canvas_layer") instance=ExtResource("2_rud5e")]
+[node name="GuestOpenUiButton" parent="CanvasLayer/Control" node_paths=PackedStringArray("button", "ui_container", "canvas_layer", "player") instance=ExtResource("2_rud5e")]
 layout_mode = 1
 script = ExtResource("5_l5yd0")
 button = NodePath("Button")
 ui_container = NodePath("..")
 canvas_layer = NodePath("../..")
+player = NodePath("../../../CharacterBody2D")
 
 [node name="EndDayUiButton" parent="CanvasLayer/Control" node_paths=PackedStringArray("button") instance=ExtResource("2_rud5e")]
 layout_mode = 1

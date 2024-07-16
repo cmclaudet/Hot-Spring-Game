@@ -3,6 +3,7 @@ extends Control
 @export var button : NinePatchRectButton
 @export var ui_container : Control
 @export var canvas_layer : CanvasLayer
+@export var player : Player
 
 var ui_guests_scene = preload("res://Scenes/ui_guests.tscn")
 var ui_guest_instance : UiGuest
@@ -20,6 +21,8 @@ func open_guest_ui():
 		ui_guest_instance.show()
 
 	ui_container.hide()
+	player.can_move = false
 
 func on_close_guest_ui():
 	ui_container.show()
+	player.can_move = true

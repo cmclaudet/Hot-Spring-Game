@@ -1,9 +1,10 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @export var speed : float = 100.0
 
 var direction : Vector2 = Vector2.ZERO
+var can_move : bool
 
 func _ready():
 	animation_tree.active = true
@@ -21,8 +22,10 @@ func _process(_delta):
 		animation_tree["parameters/Walk/blend_position"] = direction
 
 func _physics_process(delta):
-	direction = Input.get_vector("left", "right", "up", "down").normalized()
-	if direction:
+	if (can_move):
+		direction = Input.get_vector("left", "right", "up", "down").normalized()
+
+	if can_move && direction:
 		velocity = direction * speed
 	else:
 		velocity = Vector2.ZERO

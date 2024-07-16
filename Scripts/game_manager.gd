@@ -15,6 +15,7 @@ var day_end_results_scene = preload("res://Scenes/day_end_results.tscn")
 var day_end_results_scene_instance
 
 var canvas_layer : CanvasLayer
+var player : Player
 
 func init(canvas_layer : CanvasLayer):
 	self.canvas_layer = canvas_layer
