@@ -1,23 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://da0jok8d622mq"]
+[gd_scene load_steps=8 format=3 uid="uid://da0jok8d622mq"]
 
 [ext_resource type="Script" path="res://Scripts/Matching/matching.gd" id="1_1wlxi"]
 [ext_resource type="PackedScene" uid="uid://dh1c6bd54stoo" path="res://Scenes/Matching/book_page.tscn" id="1_t234y"]
+[ext_resource type="Script" path="res://Scripts/Matching/guest_panel.gd" id="3_uwbuo"]
 [ext_resource type="Texture2D" uid="uid://dxvxq6apw2xmu" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a4.png" id="11_2wyrs"]
 [ext_resource type="Texture2D" uid="uid://btg836gwpfg8a" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Press_02a2.png" id="13_3et5f"]
 [ext_resource type="Texture2D" uid="uid://d0544mtup7b3n" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a1.png" id="13_si5sg"]
 [ext_resource type="Texture2D" uid="uid://cs1qsbdgmwfo4" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Checkmark_Large.png" id="13_ybc42"]
 
-[node name="Matching" type="Control" node_paths=PackedStringArray("guest_container", "room_container")]
+[node name="Matching" type="Control" node_paths=PackedStringArray("guest_container", "room_container", "matching_container")]
 layout_mode = 3
 anchor_left = -0.5
 anchor_top = -0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 160.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1wlxi")
 guest_container = NodePath("BookPageGuest/TextureRect/ScrollContainer/VBoxContainer")
 room_container = NodePath("BookPageRooms/TextureRect/ScrollContainer/VBoxContainer")
+matching_container = NodePath(".")
 
 [node name="BookPageGuest" parent="." instance=ExtResource("1_t234y")]
 layout_mode = 1
@@ -26,22 +32,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_right = -120.0
+offset_left = -60.0
+offset_right = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BookPageGuest/TextureRect" index="0"]
 layout_mode = 0
-offset_left = 13.5
-offset_top = 12.0
-offset_right = 185.5
-offset_bottom = 266.0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 95.0
+offset_bottom = 141.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BookPageGuest/TextureRect/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
+script = ExtResource("3_uwbuo")
 
 [node name="BookPageRooms" parent="." instance=ExtResource("1_t234y")]
 layout_mode = 1
@@ -50,17 +57,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 120.0
-offset_right = 120.0
+offset_left = 61.0
+offset_right = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BookPageRooms/TextureRect" index="0"]
 layout_mode = 0
-offset_left = 13.5
-offset_top = 12.0
-offset_right = 185.5
-offset_bottom = 266.0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 95.0
+offset_bottom = 141.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BookPageRooms/TextureRect/ScrollContainer"]
 layout_mode = 2
@@ -77,15 +84,17 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -59.0
-offset_top = -59.0
-offset_right = -27.0
-offset_bottom = -27.0
+offset_left = -28.0
+offset_top = -27.0
+offset_right = -8.0
+offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("11_2wyrs")
 texture_pressed = ExtResource("13_si5sg")
 texture_hover = ExtResource("13_3et5f")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="CheckIcon" type="TextureRect" parent="DoneButton"]
 layout_mode = 1
@@ -94,13 +103,15 @@ anchor_left = 0.5
 anchor_top = 0.406
 anchor_right = 0.5
 anchor_bottom = 0.406
-offset_left = -13.0
-offset_top = -9.992
-offset_right = 13.0
-offset_bottom = 10.008
+offset_left = -11.0
+offset_top = -10.932
+offset_right = 11.0
+offset_bottom = 10.068
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_ybc42")
+expand_mode = 2
+stretch_mode = 4
 
 [connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]
 

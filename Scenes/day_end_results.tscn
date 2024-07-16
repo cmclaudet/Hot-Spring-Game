@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://clottyp36sw47" path="res://Scenes/Shared/ui_button_text.tscn" id="3_bcq51"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i7n5d"]
-font_size = 36
+font_size = 10
 font_color = Color(0, 0, 0, 1)
 
 [node name="DayEndResults" type="Control" node_paths=PackedStringArray("guests_leaving_text", "ratings_container")]
@@ -15,6 +15,10 @@ anchor_left = -0.5
 anchor_top = -0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 160.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n1sqh")
@@ -34,11 +38,11 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="BookPage/TextureRect" index="0"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 16.0
-offset_right = 683.0
-offset_bottom = 116.0
-scale = Vector2(0.25, 0.25)
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 181.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
 text = "No check outs today. You had a calm, peaceful day."
 label_settings = SubResource("LabelSettings_i7n5d")
 vertical_alignment = 2
@@ -46,10 +50,10 @@ autowrap_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BookPage/TextureRect" index="1"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 49.0
-offset_right = 186.0
-offset_bottom = 266.0
+offset_left = 9.0
+offset_top = 30.0
+offset_right = 95.0
+offset_bottom = 141.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BookPage/TextureRect/ScrollContainer"]
 layout_mode = 2
@@ -57,6 +61,8 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
 [node name="Label" parent="BookPage/TextureRect/TextureRect" index="0"]
+offset_left = -21.0
+offset_right = 63.0
 text = "Day 1 End"
 
 [node name="ContinueButton" parent="." instance=ExtResource("3_bcq51")]
@@ -64,14 +70,14 @@ layout_mode = 1
 anchors_preset = 3
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -98.0
-offset_top = -60.0
-offset_right = -30.0
-offset_bottom = -29.0
+offset_left = -55.0
+offset_top = -30.0
+offset_right = -12.0
+offset_bottom = -10.0
 grow_vertical = 0
 
 [node name="Button" parent="ContinueButton" index="0"]
-offset_left = -68.0
+offset_left = -43.0
 
 [node name="Label" parent="ContinueButton/Button" index="0"]
 text = "Continue"

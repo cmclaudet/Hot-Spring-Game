@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://Scripts/Matching/room_panel_bed.gd" id="2_62ptr"]
 
 [node name="Bed" type="NinePatchRect" node_paths=PackedStringArray("pic")]
-custom_minimum_size = Vector2(25, 23)
-offset_right = 25.0
-offset_bottom = 23.0
+custom_minimum_size = Vector2(15, 15)
+offset_right = 15.0
+offset_bottom = 15.0
 texture = ExtResource("1_o0fji")
 region_rect = Rect2(0, 6, 32, 26)
 patch_margin_left = 4
@@ -23,10 +23,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -11.0
-offset_top = -24.0
-offset_right = 12.0
-offset_bottom = -2.0
+offset_left = -6.5
+offset_top = -14.0
+offset_right = 6.5
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
 expand_mode = 2

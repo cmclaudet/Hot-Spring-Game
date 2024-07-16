@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn7huavd2fbx4"]
+[gd_scene load_steps=7 format=3 uid="uid://bn7huavd2fbx4"]
 
 [ext_resource type="Texture2D" uid="uid://cmt2raf1ockmm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Lite.png" id="2_5dsi2"]
 [ext_resource type="Texture2D" uid="uid://dpa13byucx5x1" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Lock_01a3.png" id="2_oyn1a"]
 [ext_resource type="Script" path="res://Scripts/guest_in_room_panel.gd" id="2_vkiuj"]
 [ext_resource type="PackedScene" uid="uid://be460ouuofqw7" path="res://Scenes/Matching/room_panel_bed.tscn" id="3_4y7s7"]
 [ext_resource type="Theme" uid="uid://doih5qg77psq6" path="res://Themes/ui_text_basic.tres" id="4_m4ms1"]
+[ext_resource type="LabelSettings" uid="uid://cdtgj8dm8l6kv" path="res://Themes/ui_label_setting_book_panel.tres" id="5_prmgm"]
 
 [node name="GuestInRoomPanel" type="VBoxContainer" node_paths=PackedStringArray("guest_name", "guest_picture", "days_remaining_label", "room_name", "bed_container")]
-custom_minimum_size = Vector2(2.08165e-12, 36)
-offset_right = 152.0
-offset_bottom = 36.0
+custom_minimum_size = Vector2(2.08165e-12, 18)
+offset_right = 86.0
+offset_bottom = 23.0
 size_flags_horizontal = 3
 mouse_filter = 2
 script = ExtResource("2_vkiuj")
@@ -20,7 +21,7 @@ room_name = NodePath("NinePatchRect/Room/NameLabel")
 bed_container = NodePath("NinePatchRect/Room/HBoxContainer")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(2.08165e-12, 36)
+custom_minimum_size = Vector2(2.08165e-12, 23)
 layout_mode = 2
 mouse_filter = 0
 texture = ExtResource("2_5dsi2")
@@ -34,10 +35,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 6.0
-offset_top = -15.0
-offset_right = 31.0
-offset_bottom = 8.0
+offset_left = 4.0
+offset_top = -9.5
+offset_right = 19.0
+offset_bottom = 5.5
 grow_vertical = 2
 texture = ExtResource("2_oyn1a")
 region_rect = Rect2(0, 6, 32, 26)
@@ -53,9 +54,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -22.0
-offset_right = 12.0
+offset_left = -6.5
+offset_top = -14.0
+offset_right = 6.5
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -69,27 +70,29 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -11.5
-offset_right = 100.5
-offset_bottom = 28.0
+offset_left = -9.5
+offset_right = 85.5
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)
 theme = ExtResource("4_m4ms1")
 text = "Name"
+label_settings = ExtResource("5_prmgm")
+horizontal_alignment = 1
 
 [node name="DaysRemainingLabel" type="Label" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 33.0
-offset_top = -14.0
-offset_right = 157.0
-offset_bottom = 94.0
+offset_left = 19.0
+offset_top = -7.5
+offset_right = 109.0
+offset_bottom = 56.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)
 theme = ExtResource("4_m4ms1")
 text = "Days left:
 3"
@@ -104,10 +107,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = -15.0
+offset_left = -46.0
+offset_top = -9.5
 offset_right = -3.0
-offset_bottom = 15.0
+offset_bottom = 13.5
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -118,14 +121,15 @@ anchor_left = 1.038
 anchor_top = 1.0
 anchor_right = 1.038
 anchor_bottom = 1.0
-offset_left = -70.964
-offset_top = -7.0
-offset_right = 189.036
-offset_bottom = 23.0
+offset_left = -49.634
+offset_top = -8.0
+offset_right = 189.366
+offset_bottom = 22.0
 grow_vertical = 2
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)
 theme = ExtResource("4_m4ms1")
 text = "Name | Type"
+label_settings = ExtResource("5_prmgm")
 horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/Room"]
@@ -134,10 +138,10 @@ anchor_left = 1.038
 anchor_top = 0.5
 anchor_right = 1.038
 anchor_bottom = 0.5
-offset_left = -93.964
-offset_top = -14.0
-offset_right = -5.96401
-offset_bottom = 9.0
+offset_left = -43.634
+offset_top = -11.5
+offset_right = -0.633999
+offset_bottom = 3.5
 alignment = 2
 
 [node name="Bed" parent="NinePatchRect/Room/HBoxContainer" instance=ExtResource("3_4y7s7")]
