@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 StateService="*res://Scripts/state_service.gd"
 GameManager="*res://Scripts/game_manager.gd"
+Constants="*res://Scripts/Util/constants.gd"
 
 [display]
 

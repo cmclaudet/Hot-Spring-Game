@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxdhnb8ivj8bs"]
+[gd_scene load_steps=7 format=3 uid="uid://dxdhnb8ivj8bs"]
 
 [ext_resource type="Script" path="res://Scripts/day_end_results.gd" id="1_n1sqh"]
 [ext_resource type="Resource" uid="uid://cd8744uiqqrf7" path="res://Resources/generic_rating_guests.tres" id="2_sw7vf"]
 [ext_resource type="PackedScene" uid="uid://dh1c6bd54stoo" path="res://Scenes/Matching/book_page.tscn" id="2_vhnb1"]
 [ext_resource type="PackedScene" uid="uid://clottyp36sw47" path="res://Scenes/Shared/ui_button_text.tscn" id="3_bcq51"]
+[ext_resource type="LabelSettings" uid="uid://b8lwto5lam1mq" path="res://Themes/ui_label_settings_day_end_results.tres" id="4_beei8"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_i7n5d"]
-font_size = 10
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="Theme" id="Theme_raq5l"]
+default_font_size = 10
 
-[node name="DayEndResults" type="Control" node_paths=PackedStringArray("guests_leaving_text", "ratings_container")]
+[node name="DayEndResults" type="Control" node_paths=PackedStringArray("header", "guests_leaving_text", "ratings_container", "total_money_earned_label")]
 layout_mode = 3
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -22,9 +23,11 @@ offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n1sqh")
+header = NodePath("BookPage/TextureRect/TextureRect/Label")
 guests_leaving_text = NodePath("BookPage/TextureRect/Label")
 ratings_container = NodePath("BookPage/TextureRect/ScrollContainer/VBoxContainer")
 generic_rating_texts = ExtResource("2_sw7vf")
+total_money_earned_label = NodePath("BookPage/TextureRect/TotalMoneyEarnedAmountLabel")
 
 [node name="BookPage" parent="." instance=ExtResource("2_vhnb1")]
 layout_mode = 1
@@ -48,7 +51,7 @@ offset_right = 128.985
 offset_bottom = 15.55
 scale = Vector2(0.5, 0.5)
 text = "No check outs today. You had a calm, peaceful day."
-label_settings = SubResource("LabelSettings_i7n5d")
+label_settings = ExtResource("4_beei8")
 vertical_alignment = 2
 autowrap_mode = 2
 
@@ -57,10 +60,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.505
 anchor_right = 0.505
-anchor_bottom = 0.94
+anchor_bottom = 0.833
 offset_left = -43.015
 offset_top = 25.0
 offset_right = 42.985
+offset_bottom = 0.0499904
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BookPage/TextureRect/ScrollContainer"]
 layout_mode = 2
@@ -71,6 +75,44 @@ theme_override_constants/separation = 5
 offset_left = -21.0
 offset_right = 63.0
 text = "Day 1 End"
+
+[node name="TotalMoneyEarnedAmountLabel" type="RichTextLabel" parent="BookPage/TextureRect" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.893
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = 0.0499901
+offset_right = 48.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_raq5l")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[right][img=15x15]res://Art/Ui/Coin.png[/img]+23000"
+
+[node name="TotalMoneyEarnedLabel" type="Label" parent="BookPage/TextureRect" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.833
+anchor_right = 1.0
+anchor_bottom = 1.007
+offset_left = -53.0
+offset_top = 0.0499904
+offset_right = 59.0
+offset_bottom = -6.05001
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+text = "Total Earnings:"
+label_settings = ExtResource("4_beei8")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="ContinueButton" parent="." instance=ExtResource("3_bcq51")]
 layout_mode = 1

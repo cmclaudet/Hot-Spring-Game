@@ -4,26 +4,23 @@ class_name GuestRatingPanel extends Control
 @export var guest_pic : TextureRect
 @export var guest_rating_text : Label
 @export var guest_rating_stars : StarContainer
+@export var money_earned_label : RichTextLabel
 
-func init(guest : GuestState, texts_by_star : Dictionary):
+func init(guest : GuestState, star_rating : int, texts_by_star : Dictionary, money : int):
 	guest_name.text = guest.guest.name
 	guest_pic.texture = guest.guest.profile_pic
-	init_rating(guest, texts_by_star)
+	init_money_earned(money)
+	init_rating(star_rating, texts_by_star)
 
-func init_rating(guest : GuestState, texts_by_star : Dictionary):
-	var desired_room = guest.guest.desired_room
-	var actual_room = guest.room
-	var star_rating = get_star_rating(desired_room, actual_room)
+func init_rating(star_rating : int, texts_by_star : Dictionary):
 	guest_rating_text.text = get_rating_text(texts_by_star, star_rating)
 	guest_rating_stars.init(star_rating)
-
-func get_star_rating(desired_room : Room, actual_room : Room) -> int:
-	var room_star_difference = abs(desired_room.stars - actual_room.stars)
-	var room_type_difference = abs(desired_room.type - actual_room.type) * 1.5
-	var star_rating : int = round(5 - (room_star_difference + room_type_difference) / 2.0)
-	return star_rating
 
 func get_rating_text(texts_by_star : Dictionary, star_rating : int) -> String:
 	var rating_text_options : Array = texts_by_star[star_rating]
 	var random_option_index : int = randi() % rating_text_options.size()
 	return rating_text_options[random_option_index]
+
+func init_money_earned(money : int):
+	var img_text = TextUtil.get_img_txt(Constants.MONEY_ICON_PATH, 15, 15)
+	money_earned_label.text = "[right]%s+%d" % [img_text, money]

@@ -10,3 +10,4 @@ name = "Saori"
 profile_pic = ExtResource("1_clofk")
 stay_duration = 2
 desired_room = ExtResource("1_q80u6")
+base_nightly_pay = 4500

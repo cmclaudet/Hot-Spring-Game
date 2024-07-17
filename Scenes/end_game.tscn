@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dls0wm4ttrrf"]
+
+[ext_resource type="Texture2D" uid="uid://c0xxnbxl8lnkn" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Medium_Lock_02a3.png" id="1_hokk2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_an31n"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="EndGame" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -22.0
+offset_right = 50.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hokk2")
+region_rect = Rect2(0, 6, 64, 26)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -18.0
+offset_right = 38.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "End "
+label_settings = SubResource("LabelSettings_an31n")
+horizontal_alignment = 1
+vertical_alignment = 1

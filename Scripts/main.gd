@@ -1,9 +1,13 @@
 extends Node2D
 
 @export var ui_container : Control
+@export var coin_ui : Control
 @export var starting_rooms : Array[Room]
 @export var canvas_layer : CanvasLayer
 @export var player : Player
+
+var game_end_scene = preload("res://Scenes/end_game.tscn")
+var game_end_scene_instance
 
 func _ready():
 	ui_container.hide()
@@ -24,6 +28,7 @@ func _on_end_day_ui_button_signal_end_day():
 	GameManager.end_day()
 
 func on_start_day():
+	coin_ui.update_coin_amount()
 	ui_container.hide()
 	player.can_move = false
 
@@ -37,3 +42,5 @@ func on_end_day():
 
 func on_end_game():
 	ui_container.hide()
+	game_end_scene_instance = game_end_scene.instantiate()
+	get_tree().get_root().add_child(game_end_scene_instance)

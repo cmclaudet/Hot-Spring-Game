@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bwmluk17i6j5o"]
+[gd_scene load_steps=19 format=3 uid="uid://bwmluk17i6j5o"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_db02v"]
 [ext_resource type="PackedScene" uid="uid://clottyp36sw47" path="res://Scenes/Shared/ui_button_text.tscn" id="2_rud5e"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dsjvbh8ncp8fo" path="res://Art/Gif/ground_autotile_full_9.png" id="9_s82tj"]
 [ext_resource type="Texture2D" uid="uid://dhq2griuj7fp4" path="res://Art/Gif/floor_autotile_75.png" id="10_rnyxp"]
 [ext_resource type="PackedScene" uid="uid://b202at0ndva2m" path="res://Scenes/player.tscn" id="11_5japa"]
+[ext_resource type="Texture2D" uid="uid://ci6qlatweylet" path="res://Art/Ui/Coin.png" id="12_dht5g"]
+[ext_resource type="Script" path="res://Scripts/Ui/coin_ui.gd" id="12_h3fv2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6gniy"]
 
@@ -696,9 +698,13 @@ terrain_set_1/terrain_0/color = Color(0.277548, 0.35073, 0.689344, 1)
 sources/0 = SubResource("TileSetAtlasSource_ahvii")
 sources/1 = SubResource("TileSetAtlasSource_banms")
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("ui_container", "canvas_layer", "player")]
+[sub_resource type="LabelSettings" id="LabelSettings_c0uy7"]
+font_size = 10
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("ui_container", "coin_ui", "canvas_layer", "player")]
 script = ExtResource("1_db02v")
 ui_container = NodePath("CanvasLayer/Control")
+coin_ui = NodePath("CanvasLayer/Control/CoinUi")
 starting_rooms = Array[Resource("res://Scripts/Resources/room.gd")]([ExtResource("2_sapie"), ExtResource("2_sapie"), ExtResource("3_aoxhj"), ExtResource("4_yjq01"), ExtResource("5_5178j")])
 canvas_layer = NodePath("CanvasLayer")
 player = NodePath("CharacterBody2D")
@@ -764,6 +770,35 @@ grow_vertical = 0
 
 [node name="Label" parent="CanvasLayer/Control/EndDayUiButton/Button" index="0"]
 text = "End Day"
+
+[node name="CoinUi" type="Control" parent="CanvasLayer/Control" node_paths=PackedStringArray("amount_label")]
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 55.0
+offset_bottom = 50.0
+script = ExtResource("12_h3fv2")
+amount_label = NodePath("Label")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/CoinUi"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.325
+offset_bottom = 13.0
+texture = ExtResource("12_dht5g")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CoinUi"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.325
+anchor_right = 0.325
+offset_left = 0.999999
+offset_right = 36.0
+offset_bottom = 14.0
+text = "99"
+label_settings = SubResource("LabelSettings_c0uy7")
 
 [connection signal="signal_end_day" from="CanvasLayer/Control/EndDayUiButton" to="." method="_on_end_day_ui_button_signal_end_day"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6qail5k61mle"]
+[gd_scene load_steps=9 format=3 uid="uid://c6qail5k61mle"]
 
 [ext_resource type="Script" path="res://Scripts/guest_rating_panel.gd" id="1_kdoi2"]
 [ext_resource type="Texture2D" uid="uid://cmt2raf1ockmm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Lite.png" id="1_wkna4"]
@@ -8,9 +8,12 @@
 [ext_resource type="Script" path="res://Scripts/Matching/ui_stars.gd" id="4_d8dmu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yx6rt"]
-font_size = 14
+font_size = 12
 
-[node name="GuestRatingPanel" type="VBoxContainer" node_paths=PackedStringArray("guest_name", "guest_pic", "guest_rating_text", "guest_rating_stars")]
+[sub_resource type="Theme" id="Theme_cdfvb"]
+default_font_size = 11
+
+[node name="GuestRatingPanel" type="VBoxContainer" node_paths=PackedStringArray("guest_name", "guest_pic", "guest_rating_text", "guest_rating_stars", "money_earned_label")]
 custom_minimum_size = Vector2(2.08165e-12, 24)
 offset_right = 86.0
 offset_bottom = 24.0
@@ -21,6 +24,7 @@ guest_name = NodePath("NinePatchRectToggle/ProfilePic/Label")
 guest_pic = NodePath("NinePatchRectToggle/ProfilePic/Pic")
 guest_rating_text = NodePath("NinePatchRectToggle/RatingLabel")
 guest_rating_stars = NodePath("NinePatchRectToggle/RatingLabel/StarContainer")
+money_earned_label = NodePath("NinePatchRectToggle/MoneyEarned")
 
 [node name="NinePatchRectToggle" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(2.08165e-12, 23)
@@ -130,7 +134,7 @@ layout_mode = 0
 offset_left = 21.0
 offset_top = 5.0
 offset_right = 273.0
-offset_bottom = 65.0
+offset_bottom = 57.0
 scale = Vector2(0.25, 0.25)
 text = "Amazing stay!"
 label_settings = SubResource("LabelSettings_yx6rt")
@@ -156,6 +160,22 @@ layout_mode = 2
 texture = ExtResource("3_orqwb")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="MoneyEarned" type="RichTextLabel" parent="NinePatchRectToggle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.988
+anchor_top = 0.957
+anchor_right = 0.988
+anchor_bottom = 0.957
+offset_left = -39.968
+offset_top = -5.011
+offset_right = 87.032
+offset_bottom = 11.989
+scale = Vector2(0.3, 0.3)
+theme = SubResource("Theme_cdfvb")
+bbcode_enabled = true
+text = "[right][img=15x15]res://Art/Ui/Coin.png[/img]+10000"
 
 [connection signal="gui_input" from="NinePatchRectToggle" to="NinePatchRectToggle" method="_on_gui_input"]
 [connection signal="mouse_entered" from="NinePatchRectToggle" to="NinePatchRectToggle" method="_on_mouse_entered"]
