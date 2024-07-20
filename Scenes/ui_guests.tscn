@@ -25,6 +25,9 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" parent="BookPage" index="0"]
+region_rect = Rect2(2.84827, 1.95276, 81.1163, 25.3241)
+
 [node name="ScrollContainer" type="ScrollContainer" parent="BookPage/TextureRect" index="0"]
 layout_mode = 0
 offset_left = 13.5
@@ -39,10 +42,10 @@ theme_override_constants/separation = 5
 
 [node name="CloseButton" parent="." instance=ExtResource("3_q4tt6")]
 layout_mode = 1
-offset_left = -55.0
+offset_left = -99.0
 offset_top = 19.0
 offset_right = -23.0
-offset_bottom = 51.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 
