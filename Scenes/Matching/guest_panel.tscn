@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dfg01kfodccbt"]
 
 [ext_resource type="PackedScene" uid="uid://wmnc0t03vevb" path="res://Scenes/Matching/book_panel.tscn" id="1_q5oes"]
+[ext_resource type="Texture2D" uid="uid://4slfenc446wt" path="res://Art/Ui/GuestRect.png" id="3_cxsl5"]
 [ext_resource type="Script" path="res://Scripts/Matching/guest_panel.gd" id="3_y3mo0"]
-[ext_resource type="Texture2D" uid="uid://dnnuciht64tvb" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Hover.png" id="4_cxuc3"]
-[ext_resource type="Texture2D" uid="uid://cd1ap786ok1qq" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Press_Down.png" id="4_xam5t"]
-[ext_resource type="Texture2D" uid="uid://d1u2vyyewpjh7" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Slot_01_Selected.png" id="6_pymbn"]
+[ext_resource type="Texture2D" uid="uid://dlpkfmhjiho2x" path="res://Art/Ui/GuestRect_Hover.png" id="4_yl6h7"]
+[ext_resource type="Texture2D" uid="uid://4k1pewephnnh" path="res://Art/Ui/GuestRect_Pressed.png" id="5_smjjg"]
 [ext_resource type="LabelSettings" uid="uid://cdtgj8dm8l6kv" path="res://Themes/ui_label_setting_book_panel.tres" id="7_73aak"]
 [ext_resource type="Texture2D" uid="uid://dpa13byucx5x1" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Lock_01a3.png" id="7_75dmr"]
 [ext_resource type="Script" path="res://Scripts/Matching/ui_stars.gd" id="8_2qlsg"]
@@ -24,9 +24,10 @@ stay_duration = NodePath("NinePatchRectToggle/StayDurationLabel")
 button = NodePath("NinePatchRectToggle")
 
 [node name="NinePatchRectToggle" parent="." index="0"]
-onHoverTex = ExtResource("4_cxuc3")
-onPressedTex = ExtResource("4_xam5t")
-onSelectedTex = ExtResource("6_pymbn")
+texture = ExtResource("3_cxsl5")
+onHoverTex = ExtResource("4_yl6h7")
+onPressedTex = ExtResource("5_smjjg")
+onSelectedTex = ExtResource("5_smjjg")
 
 [node name="ProfilePic" type="NinePatchRect" parent="NinePatchRectToggle" index="0"]
 layout_mode = 1

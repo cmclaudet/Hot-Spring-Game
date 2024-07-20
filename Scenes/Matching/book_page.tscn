@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dh1c6bd54stoo"]
 
-[ext_resource type="Texture2D" uid="uid://4hw3pfxotx6f" path="res://Art/Ui/PaperTextureGuests.png" id="1_s53ua"]
-[ext_resource type="Texture2D" uid="uid://d0eyh0riii7xm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Medium_Release_01a2.png" id="2_dawhj"]
+[ext_resource type="Texture2D" path="res://Art/Ui/PaperTextureGuests.png" id="1_s53ua"]
+[ext_resource type="Texture2D" uid="uid://db3r3aexhuatx" path="res://Art/Ui/Label.png" id="2_4ldnd"]
 [ext_resource type="LabelSettings" uid="uid://cjwsxdq0cq7qk" path="res://Themes/ui_text_small_header.tres" id="3_ltvpi"]
 
 [sub_resource type="Theme" id="Theme_vjedx"]
@@ -40,11 +40,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -50.0
-offset_top = -38.0
+offset_top = -33.0
 offset_right = 50.0
-offset_bottom = 2.0
+offset_bottom = 7.0
 grow_horizontal = 2
-texture = ExtResource("2_dawhj")
+texture = ExtResource("2_4ldnd")
 
 [node name="Label" type="Label" parent="TextureRect/TextureRect"]
 layout_mode = 1
@@ -54,9 +54,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -45.0
-offset_top = -10.0
+offset_top = -14.0
 offset_right = 69.0
-offset_bottom = 24.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)

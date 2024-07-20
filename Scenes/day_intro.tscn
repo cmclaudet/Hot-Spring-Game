@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvp05o02d0crn"]
 
-[ext_resource type="Texture2D" uid="uid://c0xxnbxl8lnkn" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Medium_Lock_02a3.png" id="1_qfpva"]
 [ext_resource type="Script" path="res://Scripts/day_intro.gd" id="1_sap5x"]
+[ext_resource type="Texture2D" uid="uid://db3r3aexhuatx" path="res://Art/Ui/Label.png" id="2_yayid"]
 [ext_resource type="PackedScene" uid="uid://clottyp36sw47" path="res://Scenes/Shared/ui_button_text.tscn" id="2_ynkh2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p2ev7"]
@@ -32,8 +32,8 @@ offset_right = 81.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_qfpva")
-region_rect = Rect2(0, 6, 64, 26)
+texture = ExtResource("2_yayid")
+region_rect = Rect2(2.6399, 2.04273, 81.5905, 25.1802)
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wmnc0t03vevb"]
 
+[ext_resource type="Texture2D" uid="uid://dh63eiro5wbj2" path="res://Art/Ui/RoomRect.png" id="1_tbw5k"]
 [ext_resource type="Script" path="res://Scripts/Components/nine_patch_rect_toggle.gd" id="2_63g3k"]
-[ext_resource type="Texture2D" uid="uid://cmt2raf1ockmm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Lite.png" id="2_ej0p7"]
 
 [node name="BookPanel" type="VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 36)
@@ -14,7 +14,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(2.08165e-12, 36)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("2_ej0p7")
+texture = ExtResource("1_tbw5k")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
