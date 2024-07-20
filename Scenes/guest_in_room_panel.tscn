@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bn7huavd2fbx4"]
 
-[ext_resource type="Texture2D" uid="uid://cmt2raf1ockmm" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Lite.png" id="2_5dsi2"]
+[ext_resource type="Texture2D" uid="uid://dh63eiro5wbj2" path="res://Art/Ui/RoomRect.png" id="2_exb8u"]
 [ext_resource type="Texture2D" uid="uid://dpa13byucx5x1" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Lock_01a3.png" id="2_oyn1a"]
 [ext_resource type="Script" path="res://Scripts/guest_in_room_panel.gd" id="2_vkiuj"]
 [ext_resource type="PackedScene" uid="uid://be460ouuofqw7" path="res://Scenes/Matching/room_panel_bed.tscn" id="3_4y7s7"]
@@ -23,7 +23,7 @@ bed_container = NodePath("NinePatchRect/Room/HBoxContainer")
 custom_minimum_size = Vector2(2.08165e-12, 36)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("2_5dsi2")
+texture = ExtResource("2_exb8u")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5

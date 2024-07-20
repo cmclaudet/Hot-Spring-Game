@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b627rx1081hpw"
-path="res://.godot/imported/PaperTexture.png-828f4f491cfc85fbebe9024179b3813b.ctex"
+uid="uid://b6pb6t0p1vlju"
+path="res://.godot/imported/RoomRect_Pressed.png-935534f5c7cb0cf187187c487b3aa501.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Ui/PaperTexture.png"
-dest_files=["res://.godot/imported/PaperTexture.png-828f4f491cfc85fbebe9024179b3813b.ctex"]
+source_file="res://Art/Ui/RoomRect_Pressed.png"
+dest_files=["res://.godot/imported/RoomRect_Pressed.png-935534f5c7cb0cf187187c487b3aa501.ctex"]
 
 [params]
 
