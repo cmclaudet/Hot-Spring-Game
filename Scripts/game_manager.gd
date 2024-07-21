@@ -14,6 +14,12 @@ var matching_scene_instance
 var day_end_results_scene = preload("res://Scenes/day_end_results.tscn")
 var day_end_results_scene_instance
 
+var canvas_layer : CanvasLayer
+var player : Player
+
+func init(canvas_layer : CanvasLayer):
+	self.canvas_layer = canvas_layer
+
 func start_day(day : int):
 	var day_resource = get_day_resource(day)
 	if day_resource == null:
@@ -28,7 +34,7 @@ func start_day(day : int):
 		day_intro_scene_instance = day_intro_scene.instantiate()
 		day_intro_scene_instance.init(day)
 		day_intro_scene_instance.signal_day_intro_closed.connect(on_day_intro_closed.bind(day_resource))
-		get_tree().get_root().add_child(day_intro_scene_instance)
+		canvas_layer.add_child(day_intro_scene_instance)
 	emit_signal("signal_start_day")
 
 func end_day():
@@ -45,7 +51,7 @@ func show_day_results(guests_to_remove : Array[GuestState]):
 		day_end_results_scene_instance = day_end_results_scene.instantiate()
 		day_end_results_scene_instance.init(guests_to_remove)
 		day_end_results_scene_instance.signal_end_day.connect(start_day.bind(StateService.state.day))
-		get_tree().get_root().add_child(day_end_results_scene_instance)
+		canvas_layer.add_child(day_end_results_scene_instance)
 	emit_signal("signal_end_day")
 
 func on_day_intro_closed(day : Day):
@@ -63,7 +69,7 @@ func start_matching(guests : Array[Guest], rooms : Array[Room]):
 	matching_scene_instance = matching_scene.instantiate()
 	matching_scene_instance.init(guests, rooms)
 	matching_scene_instance.matching_complete.connect(on_matching_complete)
-	get_tree().get_root().add_child(matching_scene_instance)
+	canvas_layer.add_child(matching_scene_instance)
 
 func on_matching_complete():
 	emit_signal("signal_matching_complete")

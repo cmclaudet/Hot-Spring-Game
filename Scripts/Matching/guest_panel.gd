@@ -8,7 +8,8 @@ class_name GuestPanel extends MatchingPanel
 
 var guest : Guest
 
-func init(guest : Guest):
+func init(guest : Guest, matching_container : Control):
+	self.matching_container = matching_container
 	self.guest = guest
 	guest_name.text = guest.name
 	picture.texture = guest.profile_pic

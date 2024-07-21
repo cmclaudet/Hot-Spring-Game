@@ -1,16 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxdhnb8ivj8bs"]
+[gd_scene load_steps=6 format=3 uid="uid://dxdhnb8ivj8bs"]
 
 [ext_resource type="Script" path="res://Scripts/day_end_results.gd" id="1_n1sqh"]
 [ext_resource type="Resource" uid="uid://cd8744uiqqrf7" path="res://Resources/generic_rating_guests.tres" id="2_sw7vf"]
 [ext_resource type="PackedScene" uid="uid://dh1c6bd54stoo" path="res://Scenes/Matching/book_page.tscn" id="2_vhnb1"]
 [ext_resource type="PackedScene" uid="uid://clottyp36sw47" path="res://Scenes/Shared/ui_button_text.tscn" id="3_bcq51"]
-[ext_resource type="Texture2D" uid="uid://db3r3aexhuatx" path="res://Art/Ui/Label.png" id="4_du1dg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i7n5d"]
 font_size = 36
 font_color = Color(0, 0, 0, 1)
 
-[node name="DayEndResults" type="Control" node_paths=PackedStringArray("guests_leaving_text", "ratings_container")]
+[node name="DayEndResults" type="Control" node_paths=PackedStringArray("header", "guests_leaving_text", "ratings_container")]
 layout_mode = 3
 anchor_left = -0.5
 anchor_top = -0.5
@@ -19,6 +18,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n1sqh")
+header = NodePath("BookPage/TextureRect/TextureRect/Label")
 guests_leaving_text = NodePath("BookPage/TextureRect/Label")
 ratings_container = NodePath("BookPage/TextureRect/ScrollContainer/VBoxContainer")
 generic_rating_texts = ExtResource("2_sw7vf")
@@ -57,12 +57,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
-[node name="TextureRect" parent="BookPage/TextureRect" index="2"]
-texture = ExtResource("4_du1dg")
-
 [node name="Label" parent="BookPage/TextureRect/TextureRect" index="0"]
-offset_top = -14.0
-offset_bottom = 20.0
 text = "Day 1 End"
 
 [node name="ContinueButton" parent="." instance=ExtResource("3_bcq51")]

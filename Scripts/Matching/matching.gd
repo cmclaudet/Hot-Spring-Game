@@ -4,6 +4,7 @@ signal matching_complete()
 
 @export var guest_container : BoxContainer
 @export var room_container : BoxContainer
+@export var matching_container : Control
 
 var guest_panel_scene = preload("res://Scenes/Matching/guest_panel.tscn")
 var room_panel_scene = preload("res://Scenes/Matching/room_panel.tscn")
@@ -17,14 +18,14 @@ var lines : Array[Line2D]
 func init(guests : Array[Guest], rooms : Array[Room]):
 	for guest in guests:
 		var guest_panel = guest_panel_scene.instantiate()
-		guest_panel.init(guest)
+		guest_panel.init(guest, matching_container)
 		guest_panel.button.button_selected.connect(on_guest_selected.bind(guest_panel))
 		guest_panel.button.button_deselected.connect(on_guest_deselected.bind(guest_panel))
 		guest_container.add_child(guest_panel)
 	
 	for room in rooms:
 		var room_panel = room_panel_scene.instantiate()
-		room_panel.init(room)
+		room_panel.init(room, matching_container)
 		room_panel.button.button_selected.connect(on_room_selected.bind(room_panel))
 		room_panel.button.button_deselected.connect(on_room_deselected.bind(room_panel))
 		room_container.add_child(room_panel)

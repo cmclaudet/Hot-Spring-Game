@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6qail5k61mle"]
+[gd_scene load_steps=9 format=3 uid="uid://c6qail5k61mle"]
 
 [ext_resource type="Script" path="res://Scripts/guest_rating_panel.gd" id="1_kdoi2"]
 [ext_resource type="Texture2D" uid="uid://4slfenc446wt" path="res://Art/Ui/GuestRect.png" id="2_42atn"]
@@ -7,20 +7,27 @@
 [ext_resource type="Texture2D" uid="uid://c3e5plnaiy6oh" path="res://Art/EncoderXSolutions/star.png" id="3_orqwb"]
 [ext_resource type="Script" path="res://Scripts/Matching/ui_stars.gd" id="4_d8dmu"]
 
-[node name="GuestRatingPanel" type="VBoxContainer" node_paths=PackedStringArray("guest_name", "guest_pic", "guest_rating_text", "guest_rating_stars")]
-custom_minimum_size = Vector2(2.08165e-12, 36)
-offset_right = 172.0
-offset_bottom = 36.0
+[sub_resource type="LabelSettings" id="LabelSettings_yx6rt"]
+font_size = 12
+
+[sub_resource type="Theme" id="Theme_cdfvb"]
+default_font_size = 11
+
+[node name="GuestRatingPanel" type="VBoxContainer" node_paths=PackedStringArray("guest_name", "guest_pic", "guest_rating_text", "guest_rating_stars", "money_earned_label")]
+custom_minimum_size = Vector2(2.08165e-12, 24)
+offset_right = 86.0
+offset_bottom = 24.0
 size_flags_horizontal = 3
 mouse_filter = 2
 script = ExtResource("1_kdoi2")
 guest_name = NodePath("NinePatchRectToggle/ProfilePic/Label")
 guest_pic = NodePath("NinePatchRectToggle/ProfilePic/Pic")
-guest_rating_text = NodePath("NinePatchRectToggle/Label")
-guest_rating_stars = NodePath("NinePatchRectToggle/Label/HBoxContainer")
+guest_rating_text = NodePath("NinePatchRectToggle/RatingLabel")
+guest_rating_stars = NodePath("NinePatchRectToggle/RatingLabel/StarContainer")
+money_earned_label = NodePath("NinePatchRectToggle/MoneyEarned")
 
 [node name="NinePatchRectToggle" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(2.08165e-12, 36)
+custom_minimum_size = Vector2(2.08165e-12, 23)
 layout_mode = 2
 mouse_filter = 0
 texture = ExtResource("2_42atn")
@@ -30,13 +37,16 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 
 [node name="Label" type="Label" parent="NinePatchRectToggle"]
+visible = false
 layout_mode = 2
+anchor_left = 0.267
 anchor_top = 0.431
+anchor_right = 0.267
 anchor_bottom = 0.431
-offset_left = 32.0
-offset_top = -6.516
-offset_right = 564.0
-offset_bottom = 65.484
+offset_left = 0.0380002
+offset_top = -6.913
+offset_right = 240.038
+offset_bottom = 53.087
 grow_horizontal = 0
 scale = Vector2(0.25, 0.25)
 text = "Amazing stay!"
@@ -51,10 +61,10 @@ anchor_left = 1.03
 anchor_top = -0.056
 anchor_right = 1.03
 anchor_bottom = -0.056
-offset_left = -219.96
-offset_top = -15.968
-offset_right = 0.0399518
-offset_bottom = 16.032
+offset_left = -203.32
+offset_top = 3.36
+offset_right = -3.32013
+offset_bottom = 23.36
 grow_horizontal = 0
 alignment = 2
 script = ExtResource("4_d8dmu")
@@ -68,13 +78,15 @@ stretch_mode = 4
 
 [node name="ProfilePic" type="NinePatchRect" parent="NinePatchRectToggle"]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = -1
+anchor_left = 0.233
 anchor_top = 0.5
+anchor_right = 0.233
 anchor_bottom = 0.5
-offset_left = 6.0
-offset_top = -15.0
-offset_right = 31.0
-offset_bottom = 8.0
+offset_left = -15.038
+offset_top = -9.5
+offset_right = 0.961999
+offset_bottom = 5.5
 grow_vertical = 2
 texture = ExtResource("2_vuq6d")
 region_rect = Rect2(0, 6, 32, 26)
@@ -90,9 +102,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -22.0
-offset_right = 12.0
+offset_left = -7.0
+offset_top = -14.0
+offset_right = 7.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -106,15 +118,64 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -14.5
-offset_right = 97.5
-offset_bottom = 28.0
+offset_left = -10.0
+offset_top = -1.0
+offset_right = 74.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.25, 0.25)
 text = "Name"
 label_settings = ExtResource("3_h3kej")
 horizontal_alignment = 1
+
+[node name="RatingLabel" type="Label" parent="NinePatchRectToggle"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 5.0
+offset_right = 273.0
+offset_bottom = 57.0
+scale = Vector2(0.25, 0.25)
+text = "Amazing stay!"
+label_settings = SubResource("LabelSettings_yx6rt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StarContainer" type="HBoxContainer" parent="NinePatchRectToggle/RatingLabel" node_paths=PackedStringArray("star_template")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_top = -12.0
+offset_bottom = 4.0
+grow_horizontal = 0
+alignment = 2
+script = ExtResource("4_d8dmu")
+star_template = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRectToggle/RatingLabel/StarContainer"]
+layout_mode = 2
+texture = ExtResource("3_orqwb")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MoneyEarned" type="RichTextLabel" parent="NinePatchRectToggle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.988
+anchor_top = 0.957
+anchor_right = 0.988
+anchor_bottom = 0.957
+offset_left = -39.968
+offset_top = -5.011
+offset_right = 87.032
+offset_bottom = 11.989
+scale = Vector2(0.3, 0.3)
+theme = SubResource("Theme_cdfvb")
+bbcode_enabled = true
+text = "[right][img=15x15]res://Art/Ui/Coin.png[/img]+10000"
 
 [connection signal="gui_input" from="NinePatchRectToggle" to="NinePatchRectToggle" method="_on_gui_input"]
 [connection signal="mouse_entered" from="NinePatchRectToggle" to="NinePatchRectToggle" method="_on_mouse_entered"]
