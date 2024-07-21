@@ -8,10 +8,10 @@
 [ext_resource type="Resource" uid="uid://p4mtteydgmfr" path="res://Resources/Rooms/room_king_luxury.tres" id="5_5178j"]
 [ext_resource type="Script" path="res://Scripts/button_open_guest_ui.gd" id="5_l5yd0"]
 [ext_resource type="Script" path="res://Scripts/button_end_day.gd" id="6_mlxts"]
-[ext_resource type="Texture2D" path="res://Art/Gif/ground_autotile_full_9.png" id="9_s82tj"]
-[ext_resource type="Texture2D" path="res://Art/Gif/floor_autotile_75.png" id="10_rnyxp"]
-[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="11_5japa"]
-[ext_resource type="Texture2D" path="res://Art/Ui/Coin.png" id="12_dht5g"]
+[ext_resource type="Texture2D" uid="uid://dsjvbh8ncp8fo" path="res://Art/Gif/ground_autotile_full_9.png" id="9_s82tj"]
+[ext_resource type="Texture2D" uid="uid://dhq2griuj7fp4" path="res://Art/Gif/floor_autotile_75.png" id="10_rnyxp"]
+[ext_resource type="PackedScene" uid="uid://b202at0ndva2m" path="res://Scenes/player.tscn" id="11_5japa"]
+[ext_resource type="Texture2D" uid="uid://ci6qlatweylet" path="res://Art/Ui/Coin.png" id="12_dht5g"]
 [ext_resource type="Script" path="res://Scripts/Ui/coin_ui.gd" id="12_h3fv2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6gniy"]
@@ -703,9 +703,9 @@ font_size = 10
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("ui_container", "coin_ui", "canvas_layer", "player")]
 script = ExtResource("1_db02v")
-starting_rooms = Array[Resource("res://Scripts/Resources/room.gd")]([ExtResource("2_sapie"), ExtResource("2_sapie"), ExtResource("3_aoxhj"), ExtResource("4_yjq01"), ExtResource("5_5178j")])
 ui_container = NodePath("CanvasLayer/Control")
 coin_ui = NodePath("CanvasLayer/Control/CoinUi")
+starting_rooms = Array[Resource("res://Scripts/Resources/room.gd")]([ExtResource("2_sapie"), ExtResource("2_sapie"), ExtResource("3_aoxhj"), ExtResource("4_yjq01"), ExtResource("5_5178j")])
 canvas_layer = NodePath("CanvasLayer")
 player = NodePath("CharacterBody2D")
 

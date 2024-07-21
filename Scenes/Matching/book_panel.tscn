@@ -4,14 +4,14 @@
 [ext_resource type="Script" path="res://Scripts/Components/nine_patch_rect_toggle.gd" id="2_63g3k"]
 
 [node name="BookPanel" type="VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 36)
+custom_minimum_size = Vector2(2.08165e-12, 23)
 offset_right = 100.0
-offset_bottom = 36.0
+offset_bottom = 23.0
 size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="NinePatchRectToggle" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(2.08165e-12, 36)
+custom_minimum_size = Vector2(2.08165e-12, 23)
 layout_mode = 2
 mouse_filter = 0
 texture = ExtResource("1_tbw5k")
