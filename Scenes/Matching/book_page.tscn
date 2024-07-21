@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dh1c6bd54stoo"]
 
-[ext_resource type="Texture2D" uid="uid://4hw3pfxotx6f" path="res://Art/Ui/PaperTextureGuests.png" id="1_s53ua"]
+[ext_resource type="Texture2D" uid="uid://r4yhmse7ouar" path="res://Art/Ui/PaperTextureGuests.png" id="1_s53ua"]
 [ext_resource type="Texture2D" uid="uid://db3r3aexhuatx" path="res://Art/Ui/Label.png" id="2_4ldnd"]
 [ext_resource type="LabelSettings" uid="uid://cjwsxdq0cq7qk" path="res://Themes/ui_text_small_header.tres" id="3_ltvpi"]
 
