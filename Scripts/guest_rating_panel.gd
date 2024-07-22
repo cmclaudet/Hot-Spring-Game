@@ -22,5 +22,5 @@ func get_rating_text(texts_by_star : Dictionary, star_rating : int) -> String:
 	return rating_text_options[random_option_index]
 
 func init_money_earned(money : int):
-	var img_text = TextUtil.get_img_txt(Constants.MONEY_ICON_PATH, 15, 15)
+	var img_text = TextUtil.get_img_txt(Constants.MONEY_ICON_PATH, 7, 7)
 	money_earned_label.text = "[right]%s+%d" % [img_text, money]

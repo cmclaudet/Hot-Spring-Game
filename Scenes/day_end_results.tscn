@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxdhnb8ivj8bs"]
+[gd_scene load_steps=8 format=3 uid="uid://dxdhnb8ivj8bs"]
 
 [ext_resource type="Script" path="res://Scripts/day_end_results.gd" id="1_n1sqh"]
 [ext_resource type="Resource" uid="uid://cd8744uiqqrf7" path="res://Resources/generic_rating_guests.tres" id="2_sw7vf"]
@@ -6,15 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://clottyp36sw47" path="res://Scenes/Shared/ui_button_text.tscn" id="3_bcq51"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i7n5d"]
-font_size = 36
+font_size = 8
 font_color = Color(0, 0, 0, 1)
 
-[node name="DayEndResults" type="Control" node_paths=PackedStringArray("header", "guests_leaving_text", "ratings_container")]
+[sub_resource type="Theme" id="Theme_54unr"]
+default_font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_jks1u"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="DayEndResults" type="Control" node_paths=PackedStringArray("header", "guests_leaving_text", "ratings_container", "total_money_earned_label")]
 layout_mode = 3
-anchor_left = -0.5
-anchor_top = -0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n1sqh")
@@ -22,35 +28,37 @@ header = NodePath("BookPage/TextureRect/TextureRect/Label")
 guests_leaving_text = NodePath("BookPage/TextureRect/Label")
 ratings_container = NodePath("BookPage/TextureRect/ScrollContainer/VBoxContainer")
 generic_rating_texts = ExtResource("2_sw7vf")
+total_money_earned_label = NodePath("BookPage/TextureRect/RichTextLabel")
 
 [node name="BookPage" parent="." instance=ExtResource("2_vhnb1")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Label" type="Label" parent="BookPage/TextureRect" index="0"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 16.0
-offset_right = 683.0
-offset_bottom = 116.0
-scale = Vector2(0.25, 0.25)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.121
+offset_left = -90.0
+offset_top = 8.0
+offset_right = 90.0
+offset_bottom = -1.058
 text = "No check outs today. You had a calm, peaceful day."
 label_settings = SubResource("LabelSettings_i7n5d")
 vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BookPage/TextureRect" index="1"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 49.0
-offset_right = 186.0
-offset_bottom = 266.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.138
+anchor_right = 0.5
+anchor_bottom = 0.138
+offset_left = -94.0
+offset_top = -0.124003
+offset_right = 94.0
+offset_bottom = 213.876
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BookPage/TextureRect/ScrollContainer"]
 layout_mode = 2
@@ -60,19 +68,47 @@ theme_override_constants/separation = 5
 [node name="Label" parent="BookPage/TextureRect/TextureRect" index="0"]
 text = "Day 1 End"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="BookPage/TextureRect" index="3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -27.0
+offset_right = -8.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_54unr")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[right][img=15x15]res://Art/Ui/Coin.png[/img]+10000"
+
+[node name="Label" type="Label" parent="BookPage"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 124.0
+offset_right = 93.0
+offset_bottom = 136.0
+text = "Total earnings:"
+label_settings = SubResource("LabelSettings_jks1u")
+horizontal_alignment = 2
+
 [node name="ContinueButton" parent="." instance=ExtResource("3_bcq51")]
 layout_mode = 1
 anchors_preset = 3
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -98.0
+offset_left = -105.0
 offset_top = -60.0
 offset_right = -30.0
 offset_bottom = -29.0
 grow_vertical = 0
 
 [node name="Button" parent="ContinueButton" index="0"]
-offset_left = -68.0
+offset_left = -78.0
 
 [node name="Label" parent="ContinueButton/Button" index="0"]
 text = "Continue"
