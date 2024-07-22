@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0544mtup7b3n" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a1.png" id="13_si5sg"]
 [ext_resource type="Texture2D" uid="uid://cs1qsbdgmwfo4" path="res://Art/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Checkmark_Large.png" id="13_ybc42"]
 
-[node name="Matching" type="Control" node_paths=PackedStringArray("guest_container", "room_container")]
+[node name="Matching" type="Control" node_paths=PackedStringArray("guest_container", "room_container", "matching_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,11 +18,12 @@ grow_vertical = 2
 script = ExtResource("1_1wlxi")
 guest_container = NodePath("BookPageGuest/TextureRect/ScrollContainer/VBoxContainer")
 room_container = NodePath("BookPageRooms/TextureRect/ScrollContainer/VBoxContainer")
+matching_container = NodePath(".")
 
 [node name="BookPageGuest" parent="." instance=ExtResource("1_t234y")]
 layout_mode = 1
-offset_left = -59.0
-offset_right = -59.0
+offset_left = -114.0
+offset_right = -114.0
 
 [node name="TextureRect" parent="BookPageGuest" index="0"]
 region_rect = Rect2(2.84827, 1.95276, 81.3141, 25.1392)
@@ -32,10 +33,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.505
 anchor_right = 0.505
-offset_left = -44.025
+offset_left = -94.545
 offset_top = 8.0
-offset_right = 43.975
-offset_bottom = 141.0
+offset_right = 92.455
+offset_bottom = 289.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BookPageGuest/TextureRect/ScrollContainer"]
 layout_mode = 2
@@ -48,8 +49,8 @@ offset_bottom = 19.0
 
 [node name="BookPageRooms" parent="." instance=ExtResource("1_t234y")]
 layout_mode = 1
-offset_left = 65.0
-offset_right = 65.0
+offset_left = 119.0
+offset_right = 119.0
 
 [node name="TextureRect" parent="BookPageRooms" index="0"]
 texture = ExtResource("4_enuk6")
@@ -60,10 +61,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.505
 anchor_right = 0.505
-offset_left = -44.025
+offset_left = -94.545
 offset_top = 8.0
-offset_right = 43.975
-offset_bottom = 141.0
+offset_right = 92.455
+offset_bottom = 289.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BookPageRooms/TextureRect/ScrollContainer"]
 layout_mode = 2
@@ -80,10 +81,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -36.0
-offset_top = -37.0
-offset_right = -4.0
-offset_bottom = -5.0
+offset_left = -41.0
+offset_top = -40.0
+offset_right = -9.0
+offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("11_2wyrs")

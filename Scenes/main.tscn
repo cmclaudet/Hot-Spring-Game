@@ -699,7 +699,6 @@ sources/0 = SubResource("TileSetAtlasSource_ahvii")
 sources/1 = SubResource("TileSetAtlasSource_banms")
 
 [sub_resource type="LabelSettings" id="LabelSettings_c0uy7"]
-font_size = 28
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("ui_container", "coin_ui", "canvas_layer", "player")]
 script = ExtResource("1_db02v")
@@ -711,7 +710,7 @@ player = NodePath("CharacterBody2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, 0)
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_upabd")
@@ -747,10 +746,10 @@ layout_mode = 1
 anchors_preset = 3
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -31.0
-offset_right = -34.0
-offset_bottom = -31.0
+offset_left = -20.0
+offset_top = -21.0
+offset_right = -20.0
+offset_bottom = -21.0
 grow_vertical = 0
 script = ExtResource("6_mlxts")
 button = NodePath("Button")
@@ -759,8 +758,8 @@ button = NodePath("Button")
 anchors_preset = 3
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -45.0
-offset_bottom = 3.0
+offset_top = -32.0
+offset_bottom = 2.0
 grow_vertical = 0
 
 [node name="Label" parent="CanvasLayer/Control/EndDayUiButton/Button" index="0"]
@@ -768,19 +767,19 @@ text = "End Day"
 
 [node name="CoinUi" type="Control" parent="CanvasLayer/Control" node_paths=PackedStringArray("amount_label")]
 anchors_preset = 0
-offset_left = 15.0
-offset_top = 10.0
-offset_right = 74.0
-offset_bottom = 61.0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 66.0
+offset_bottom = 56.0
 script = ExtResource("12_h3fv2")
 amount_label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/CoinUi"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.644
-offset_right = 0.00399685
-offset_bottom = 37.0
+anchor_right = 0.356
+offset_right = -0.00400037
+offset_bottom = 20.0
 texture = ExtResource("12_dht5g")
 expand_mode = 2
 stretch_mode = 4
@@ -788,11 +787,14 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="CanvasLayer/Control/CoinUi"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.729
-anchor_right = 0.729
-offset_left = -0.0110019
-offset_right = 54.989
-offset_bottom = 39.0
+anchor_left = 0.39
+anchor_top = -0.046
+anchor_right = 0.39
+anchor_bottom = -0.046
+offset_left = -0.0100009
+offset_top = 1.346
+offset_right = 31.99
+offset_bottom = 24.346
 text = "99"
 label_settings = SubResource("LabelSettings_c0uy7")
 vertical_alignment = 1
